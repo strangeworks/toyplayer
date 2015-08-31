@@ -11,3 +11,7 @@
 * get familiar with modern frontend toolset
 * learn new browser APIs
 
+### Instalation instructions:
+* make sure that node.js and npm is installed
+* run `make setup`
+* follow `http://localhost:3000` to start working on

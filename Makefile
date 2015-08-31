@@ -1,8 +1,5 @@
 default: dev
 
-build:
-	@npm run build
-
 clean:
 	@rm -rf ./node_modules
 
@@ -12,6 +9,6 @@ dev:
 install:
 	npm install
 
-setup: clean install build
+setup: clean install dev
 
 .PHONY: build clean install setup
