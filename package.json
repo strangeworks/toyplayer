@@ -1,0 +1,19 @@
+{
+  "name": "toyplayer",
+  "version": "0.0.1",
+  "description": "Toy project to learn frontend stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strangeworks/toyplayer.git"
+  },
+  "author": "Yurii Plugatariov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strangeworks/toyplayer/issues"
+  },
+  "homepage": "https://github.com/strangeworks/toyplayer"
+}
