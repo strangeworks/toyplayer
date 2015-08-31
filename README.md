@@ -4,7 +4,7 @@
 * intermediate css knowledge
 * intermediate js knowledge
 * experience with sass
-* experience with jquery
+* expreience with jquery
 
 ### After you finish, you:
 * can write jquery plugins
