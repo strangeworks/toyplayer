@@ -11,34 +11,34 @@ var Plugin = require('./plugin.js');
 var Toyplay = function(element, options) {
   this.$element = $(element)
   this.options = options
-  debugger;
-  this.$element.on('load', $.proxy(this.appendPlayer, this))
+  //this.$element.on('load', $.proxy(this.appendPlayer, this))
+  this.appendPlayer.call(this);
 }
 
 Toyplay.DEFAULTS = {
 
-  topBlockTeplate: [
+  topBlockTemplate: [
     '<div class = "top-block">',
     '</div>'
   ].join(''),
 
-  bottomBlockTeplate: [
+  bottomBlockTemplate: [
     '<div class = "bottom-block">',
     '</div>'
   ].join(''),
 
-  pictureTeplate: [
+  pictureTemplate: [
     '<img src = {src}>',
     '</img>'
   ].join(''),
 
-  buttonTeplate: [
+  buttonTemplate: [
     '<button>',
       '{data}',
     '</button>'
   ].join(''),
 
-  songInformTeplate: [
+  songInformTemplate: [
     '<div>',
       '<p>',
         '{song}',
@@ -65,9 +65,8 @@ Toyplay.DEFAULTS = {
 Toyplay.prototype = {
 
   appendPlayer: function(e) {
-    alert('Function works!');
     this.createTopBlock();
-    this.createBottoBlock();
+    this.createBottomBlock();
   },
 
   createTopBlock: function() {
@@ -76,7 +75,7 @@ Toyplay.prototype = {
     this.createButton('mute');
   },
 
-  createBottoBlock: function() {
+  createBottomBlock: function() {
     this.createProgressBar();
     this.createSongInformTeplate();
     this.createButton('prev');
@@ -84,28 +83,29 @@ Toyplay.prototype = {
   },
 
   createPicture: function() {
-    var pictureTemperaryTemplate = this.options.buttonTeplate.clone();
-    pictureTemperaryTemplate.replace('{src}', this.options.pictureSrc);
-    this.append(pictureTemperaryTemplate);
+    var pictureTemperaryTemplate = this.options.pictureTemplate;
+    pictureTemperaryTemplate = pictureTemperaryTemplate.replace('{src}', this.options.pictureSrc);
+    $(this.$element).append(pictureTemperaryTemplate);
 
   },
 
   createButton: function(icon) {
-    var buttonTemperaryTemplate = this.options.buttonTeplate.clone();
-    buttonTemperaryTemplate.replace('{data}', icon);
-    this.append(buttonTemperaryTemplate);
+    var buttonTemperaryTemplate = this.options.buttonTemplate;
+    buttonTemperaryTemplate = buttonTemperaryTemplate.replace('{data}', icon);
+    $(this.$element).append(buttonTemperaryTemplate);
 
   },
 
   createProgressBar: function() {
-    this.append(progressBarTemplate);
+    var progressBarTemplate = this.options.progressBarTemplate;
+    $(this.$element).append(progressBarTemplate);
   },
 
   createSongInformTeplate: function() {
-    var songTemperaryTemplate = this.options.songInformTeplate.clone();
-    songTemperaryTemplate.replace('{song}', this.options.song);
-    songTemperaryTemplate.replace('{artist}', this.options.artist);
-    this.append(songInformTeplate);
+    var songTemperaryTemplate = this.options.songInformTemplate;
+    songTemperaryTemplate = songTemperaryTemplate.replace('{song}', this.options.song);
+    songTemperaryTemplate = songTemperaryTemplate.replace('{artist}', this.options.artist);
+    $(this.$element).append(songTemperaryTemplate);
   }
 }
 
