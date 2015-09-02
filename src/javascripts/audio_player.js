@@ -21,10 +21,10 @@ Toyplay.DEFAULTS = {
     '<div class = "bottom-part-player">',
       '<progress value="0"></progress>',
       '<button>{prev}</button>',
-      '<div>',
+      '<span>',
         '<p>{song}</p>',
         '<p>{artist}</p>',
-      '</div>',
+      '</span>',
       '<button>{next}</button>',
     '</div>'
   ].join(''),
@@ -35,13 +35,13 @@ Toyplay.DEFAULTS = {
 
   src: 'http://static.universal-music.de/asset_new/283875/348/view/Different-Pulses.jpg',
 
-  play: '\f04b',
+  play: '&#xf04b;',
 
-  mute: 'mute',
+  mute: '&#xf027;',
 
-  prev: 'prev',
+  prev: '&#xf048;',
 
-  next: 'next'
+  next: '&#xf051;'
 }
 
 Toyplay.prototype = {

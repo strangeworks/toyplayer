@@ -25,4 +25,41 @@ html {
 div {
     z-index: 1;
 }
-
+.top-part-player {
+  position: relative;
+  height: 70%;
+  width: 100%;
+}
+.top-part-player button {
+  position: absolute;
+  bottom:0;
+}
+.top-part-player button:first-child {
+  position: absolute;
+  left:0;
+}
+.top-part-player button:last-child {
+  position: absolute;
+  right:0;
+}
+.bottom-part-player {
+  background: #2d2e30;
+  position: relative;
+  height: 30%;
+  width: 100%;
+}
+.bottom-part-player button {
+  float: left;
+  height: 100%;
+  width: 15%;
+}
+.bottom-part-player span {
+  text-align: center;
+  float: left;
+  height: 100%;
+  width: 70%;
+}
+progress {
+  width: 100%;
+  height: 5%;
+}

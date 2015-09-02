@@ -10,4 +10,29 @@ button {
   background: $clair-grey;
   color: $dark-grey;
   font-family: FontAwesome;
+  font-size: 1.5em;
+  width: 90px;
+  height: 90px;
+  color: #333;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+/*button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(http://www.defaulticon.com/sites/default/files/styles/icon-front-page-32x32-preview/public/field/image/MD-camera-photo_0.png) center no-repeat;
+  display: block;
+  opacity: 0.7;
+}*/
+button:hover {
+  transform: scale(1.2);
+  color: #eee;
+  background: #333;
+  cursor: pointer;
+  text-shadow: none;
+
 }
