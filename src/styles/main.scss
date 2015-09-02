@@ -1,0 +1,64 @@
+//require('fonts/icomoon.ttf');
+//require('imgs/play.svg');
+
+
+/*@font-face {
+  font-family: icomoon;
+  src: url('fonts/icomoon.ttf');
+}
+
+button {
+  font-family: icomoon;
+}
+
+
+/*button:before {
+  content: url('imgs/play.svg') /* with class ModalCarrot ??*/
+/*}
+
+button {
+   position: absolute;
+   left: 50%;
+   margin-left: -8px;
+   top: -16px;
+}
+*/
+
+@charset 'UTF-8';
+
+// 1. Vendors
+@import
+  'vendor/font-awesome.scss',
+  'vendor/font-awesome.min.css';
+
+// 2. Configuration and helpers
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins';
+
+// 3. Base stuff
+@import
+  'base/fonts',
+  'base/base',
+  'base/text',
+  'base/helpers';
+
+// 4. Layout-related sections
+@import
+  'layout/grid';
+
+// 5. Components
+@import
+  'components/player',
+  'components/buttons',
+  'components/img',
+  'components/progress';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+// 7. Themes
+@import
+  'themes/default';

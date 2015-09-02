@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+button {
+  position: relative;
+  border: 1px solid $light-grey;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: $clair-grey;
+  color: $dark-grey;
+  font-family: FontAwesome;
+}

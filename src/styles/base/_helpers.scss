@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+
+/**
+ * Basic styles for alignment
+ */
+.center {
+  margin: auto;
+}
+
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}

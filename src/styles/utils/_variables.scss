@@ -1,0 +1,91 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Helvetica Neune', Helvetica, Arial, sans-serif !default;
+
+/// Regular line height
+/// @type Line-height
+$text-line-height: 1.5;
+
+/// Background color
+/// @type Color
+$background-color: #CDC5BF;
+
+
+/// Copy text color
+/// @type Color
+$text-color: #222 !default;
+
+/// Main brand color
+/// @type Color
+$brand-color: #008CBA !default;
+
+/// Dark blue
+/// @type Color
+$dark-brand-color: #007095 !default;
+
+/// Clair-grey
+/// @type Color
+$clair-grey: #f2f2f2 !default;
+
+/// Light grey
+/// @type Color
+$light-grey: #DDD !default;
+
+/// Medium grey
+/// @type Color
+$mid-grey: #999 !default;
+
+/// Medium grey
+/// @type Color
+$dark-grey: #333 !default;
+
+/// Transparent grey
+/// @type Color
+$transparent-grey: rgba(0,0,0,0.05);
+
+/// Buttons color in the top
+/// Button font color
+/// @type Color
+$top-button-font-color: #fff;
+
+
+/// Box-shadow color
+/// @type Color
+$box-shadow-inset-color: rgba(0,0,0,0.1);
+
+
+/// Box-shadow color
+/// @type Color
+$box-shadow-outside-color: rgba(0,0,0,0.3);
+
+/// Form-color
+/// @type Color
+$input-border-color: #cccccc;
+
+/// Container's maximum width
+/// Below that is 100%
+/// @type Length
+$max-width: 1200px !default;
+
+
+
+
+
+/// Breakpoints variables
+$slicer-breakpoints: 0 400px 600px 800px 1050px;
+
+
+
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

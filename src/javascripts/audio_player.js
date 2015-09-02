@@ -1,77 +1,62 @@
 var $ = require('jquery');
-
-/*if($('[data-toyplay]').data(toyplay.plugin)){
-  $('[data-toyplay]').data(toyplay.plugin, '');
-}*/
-
-//$('[data-toyplay]').data('toyplay.plugin', '');
+var tmpl = require ('riot-tmpl');
 
 var Plugin = require('./plugin.js');
 
 var Toyplay = function(element, options) {
   this.$element = $(element)
   this.options = options
-  //this.$element.on('load', $.proxy(this.appendPlayer, this))
   this.appendPlayer.call(this);
 }
 
 Toyplay.DEFAULTS = {
 
-  topBlockTemplate: [
-    '<div class = "top-block">',
+  template: [
+    '<div class = "top-part-player">',
+      '<img src = {src}></img>',
+      '<button>{play}</button>',
+      '<button>{mute}</button>',
+    '</div>',
+
+    '<div class = "bottom-part-player">',
+      '<progress value="0"></progress>',
+      '<button>{prev}</button>',
+      '<div>',
+        '<p>{song}</p>',
+        '<p>{artist}</p>',
+      '</div>',
+      '<button>{next}</button>',
     '</div>'
   ].join(''),
-
-  bottomBlockTemplate: [
-    '<div class = "bottom-block">',
-    '</div>'
-  ].join(''),
-
-  pictureTemplate: [
-    '<img src = {src}>',
-    '</img>'
-  ].join(''),
-
-  buttonTemplate: [
-    '<button>',
-      '{data}',
-    '</button>'
-  ].join(''),
-
-  songInformTemplate: [
-    '<div>',
-      '<p>',
-        '{song}',
-      '</p>',
-      '<p>',
-        '{artist}',
-      '{/p>',
-    '</div>'
-  ].join(''),
-
-  progressBarTemplate: [
-    '<progress value="0">',
-    '</progress>'
-  ],
 
   song: 'Different Pulsuses',
 
   artist: 'Asaf Avidan',
 
-  pictureSrc: 'http://static.universal-music.de/asset_new/283875/348/view/Different-Pulses.jpg'
+  src: 'http://static.universal-music.de/asset_new/283875/348/view/Different-Pulses.jpg',
 
+  play: '\f04b',
+
+  mute: 'mute',
+
+  prev: 'prev',
+
+  next: 'next'
 }
 
 Toyplay.prototype = {
 
   appendPlayer: function(e) {
-    this.createTopBlock();
-    this.createBottomBlock();
-  },
 
-  createTopBlock: function() {
+    var temperaryTemplate = this.options.template;
+    temperaryTemplate = tmpl(temperaryTemplate, this.options);
+    $(this.$element).append(temperaryTemplate);
+
+  }
+
+  /*createTopBlock: function() {
     this.createPicture();
-    this.createButton('play');
+    this.createButton('&#xe600;');
     this.createButton('mute');
   },
 
@@ -106,7 +91,7 @@ Toyplay.prototype = {
     songTemperaryTemplate = songTemperaryTemplate.replace('{song}', this.options.song);
     songTemperaryTemplate = songTemperaryTemplate.replace('{artist}', this.options.artist);
     $(this.$element).append(songTemperaryTemplate);
-  }
+  }*/
 }
 
 new Plugin('toyplay', Toyplay);

@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// This file contains all text-styles
+// -----------------------------------------------------------------------------
+
+/**
+ * Basic styles for small-text
+ */
+small {
+  font-size: 60%;
+  color: #6F6F6F;
+}
+
+/**
+ * Basic styles for paragraphs
+ */
+p {
+  @include text-params(1rem, 1.6rem);
+  margin-bottom: 1.25rem;
+}

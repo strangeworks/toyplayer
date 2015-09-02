@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+
+/**
+ * Reset all margins and paddings
+ * Make all elements border-box-type
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Set up settings on the root element
+ */
+html {
+  background: $background-color;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+div {
+    z-index: 1;
+}
+
