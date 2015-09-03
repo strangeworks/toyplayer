@@ -9,63 +9,53 @@ $text-font-stack: 'Helvetica Neune', Helvetica, Arial, sans-serif !default;
 
 /// Regular line height
 /// @type Line-height
-$text-line-height: 1.5;
+//$text-line-height: 1.5;
 
 /// Background color
 /// @type Color
 $background-color: #c7bcbc;
 
-
-/// Copy text color
+/// Silver
 /// @type Color
-$text-color: #222 !default;
+$silver: #eaeaea !default;
 
-/// Main brand color
+/// Grey
 /// @type Color
-$brand-color: #008CBA !default;
+$grey: #636464 !default;
 
-/// Dark blue
+/// Dark-grey
 /// @type Color
-$dark-brand-color: #007095 !default;
+$dark-grey: #2b2c2d !default;
 
-/// Clair-grey
+/// Black
 /// @type Color
-$clair-grey: #f2f2f2 !default;
+$black: black !default;
 
-/// Light grey
+/// Black
 /// @type Color
-$light-grey: #DDD !default;
-
-/// Medium grey
-/// @type Color
-$mid-grey: #999 !default;
-
-/// Medium grey
-/// @type Color
-$dark-grey: #333 !default;
+$red: #db3d48 !default;
 
 /// Transparent grey
 /// @type Color
-$transparent-grey: rgba(0,0,0,0.05);
+$transparent: rgba(0,0,0,0);
 
-/// Buttons color in the top
-/// Button font color
+
+/// Transparent grey
 /// @type Color
-$top-button-font-color: #fff;
-
+$half-transparent: rgba(255,255,255,0.06);
 
 /// Box-shadow color
 /// @type Color
-$box-shadow-inset-color: rgba(0,0,0,0.1);
+$box-shadow-color: rgba(0,0,0,0.5);
 
+/// Box-shadow color
+/// @type Color
+$shadow-color: rgba(0,0,0,0.5);
 
 /// Box-shadow color
 /// @type Color
 $box-shadow-outside-color: rgba(0,0,0,0.3);
 
-/// Form-color
-/// @type Color
-$input-border-color: #cccccc;
 
 /// Container's maximum width
 /// Below that is 100%

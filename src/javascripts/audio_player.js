@@ -19,7 +19,7 @@ Toyplay.DEFAULTS = {
     '</div>',
 
     '<div class = "bottom-part-player">',
-      '<progress value="0"></progress>',
+      '<progress value="0.7"></progress>',
       '<button>{prev}</button>',
       '<span>',
         '<p>{song}</p>',
@@ -29,11 +29,11 @@ Toyplay.DEFAULTS = {
     '</div>'
   ].join(''),
 
-  song: 'Different Pulsuses',
+  song: 'Different Pulses',
 
   artist: 'Asaf Avidan',
 
-  src: 'http://static.universal-music.de/asset_new/283875/348/view/Different-Pulses.jpg',
+  src: 'http://cdn-dailyelle.ladmedia.fr/2013/01/clip-asaf-avidan-different-pulses.jpg',
 
   play: '&#xf04b;',
 
@@ -47,51 +47,10 @@ Toyplay.DEFAULTS = {
 Toyplay.prototype = {
 
   appendPlayer: function(e) {
-
     var temperaryTemplate = this.options.template;
     temperaryTemplate = tmpl(temperaryTemplate, this.options);
     $(this.$element).append(temperaryTemplate);
-
   }
-
-  /*createTopBlock: function() {
-    this.createPicture();
-    this.createButton('&#xe600;');
-    this.createButton('mute');
-  },
-
-  createBottomBlock: function() {
-    this.createProgressBar();
-    this.createSongInformTeplate();
-    this.createButton('prev');
-    this.createButton('next');
-  },
-
-  createPicture: function() {
-    var pictureTemperaryTemplate = this.options.pictureTemplate;
-    pictureTemperaryTemplate = pictureTemperaryTemplate.replace('{src}', this.options.pictureSrc);
-    $(this.$element).append(pictureTemperaryTemplate);
-
-  },
-
-  createButton: function(icon) {
-    var buttonTemperaryTemplate = this.options.buttonTemplate;
-    buttonTemperaryTemplate = buttonTemperaryTemplate.replace('{data}', icon);
-    $(this.$element).append(buttonTemperaryTemplate);
-
-  },
-
-  createProgressBar: function() {
-    var progressBarTemplate = this.options.progressBarTemplate;
-    $(this.$element).append(progressBarTemplate);
-  },
-
-  createSongInformTeplate: function() {
-    var songTemperaryTemplate = this.options.songInformTemplate;
-    songTemperaryTemplate = songTemperaryTemplate.replace('{song}', this.options.song);
-    songTemperaryTemplate = songTemperaryTemplate.replace('{artist}', this.options.artist);
-    $(this.$element).append(songTemperaryTemplate);
-  }*/
 }
 
 new Plugin('toyplay', Toyplay);

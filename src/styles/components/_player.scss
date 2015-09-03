@@ -4,12 +4,7 @@
 
 #player {
   position: relative;
-  border: 1px solid $light-grey;
-  margin: 5rem;
-  width: 600px;
-  height: 400px;
-  background: $clair-grey;
-  color: $dark-grey;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: -6px 6px 40px 5px $box-shadow-color;
+  border-top: 2.5px solid $half-transparent;
   overflow: hidden;
 }

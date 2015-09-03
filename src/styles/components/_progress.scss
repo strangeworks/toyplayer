@@ -2,10 +2,17 @@
 // This file contains all styles related to the featured of the site/application.
 // -----------------------------------------------------------------------------
 
-.featured {
-  border: 1px solid $light-grey;
-  margin-bottom: 1.25rem;
-  padding: 1.25rem;
-  background: $clair-grey;
-  color: $dark-grey;
+
+progress {
+  background-color: $black;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: $black;
+}
+
+progress[value]::-webkit-progress-value {
+  /* Reset the default appearance */
+   background-color: $red;
+   box-shadow: inset 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
 }
