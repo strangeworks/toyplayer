@@ -18,18 +18,7 @@
  */
 html {
   background: $background-color;
-  box-sizing: border-box;
-  font-size: 16px;
+  font-size: $html-font-size;
 }
 
-span {
-  margin-top: 20px;
-}
-
-span p:first-child {
-  color: $silver;
-}
-span p:last-child {
-  color: $grey;
-}
 

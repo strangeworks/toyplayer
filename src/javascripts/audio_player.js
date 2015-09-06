@@ -12,35 +12,47 @@ var Toyplay = function(element, options) {
 Toyplay.DEFAULTS = {
 
   template: [
-    '<div class = "top-part-player">',
-      '<img src = {src}></img>',
-      '<button id="playbutton" class="play">{PLAY}</button>',
-      '<button id="mute">{MUTE}</button>',
+    '<div class = "player-image">',
+      '<img src = {imageSrc}></img>',
     '</div>',
 
-    '<div class = "bottom-part-player">',
-      '<progress value="0.1" max="100"></progress>',
-      '<button id="prev">{PREV}</button>',
-      '<span>',
+    '<div class = "player-controls">',
+      '<button id="player-button-play">{PLAY}</button>',
+      '<span class="extra-controls">',
+        '<a id="player-button-slower">-30c</a>',
+        '<a id="player-button-faster">+30c</a>',
+      '</span>',
+      '<button id="player-button-mute">{MUTE}</button>',
+
+      '<span class="player-progress">',
+        '<span class="player-progress-loading"></span>',
+        '<span class="player-progress-bar"></span>',
+      '</span>',
+
+      '<button id="player-button-previous">{PREV}</button>',
+      '<span class="player-song-name">',
         '<p>{song}</p>',
         '<p>{artist}</p>',
       '</span>',
-      '<button id="next">{NEXT}</button>',
+      '<button id="player-button-next">{NEXT}</button>',
     '</div>',
 
-    '<audio controls>',
+    '<audio>',
       'Sorry, but your browser does not support the <code>audio</code> element.',
     '</audio>',
-    '<input type="text" id="audiosrc1" size="80" value="http://music.my.mail.ru/file/2f1e9c500db1fcaae5e30a5391a43dba.mp3?session_key=123a5c0ea0ec54f17b536c18e6ddb1f3" />',
-    '<input type="text" id="audiosrc2" size="80" value="http://music.my.mail.ru/file/96e6f6856377636eed7f678269d4e453.mp3?session_key=8bb96c1f5061ef8ffe689cee44db8fb6" />',
-    '<input type="text" id="audiosrc3" size="80" value="http://music.my.mail.ru/file/2db27b87c67fc0292bfa31305fcfdb9a.mp3?session_key=0a5e273a51fa54fa2a5d3cc7d444a45c" />'
+
+    '<input type="text" id="audiosrc3" size="80" value="https://dl-web.dropbox.com/get/03_asaf_avidan_love_it_or_leave_it_myzuka.org.mp3?_subject_uid=416956950&w=AAARxWsnDUEQyouWWFd2tmsZ0SK-OmCP_n-uxAW8no3wgQ" />',
+    '<input type="text" id="audiosrc2" size="80" value="https://dl-web.dropbox.com/get/04_asaf_avidan_cyclamen_myzuka.org.mp3?_subject_uid=416956950&w=AACkPx4254foi-B5fKgzsRMVatohP_q72RPs6685wrr-Ig" />',
+    '<input type="text" id="audiosrc1" size="80" value="https://dl-web.dropbox.com/get/07_asaf_avidan_lets_just_call_it_fate_myzuka.org.mp3?_subject_uid=416956950&w=AABXpdxm3YOSsXxWfvVd7bR-TWq2srTazdrBrMKNzItp5w" />'
   ].join(''),
 
   song: 'Different Pulses',
 
   artist: 'Asaf Avidan',
 
-  src: 'http://i.allday2.com/d3/b8/a1/thumbs/1362952007_07.jpg',
+  imageSrc: 'http://i.allday2.com/d3/b8/a1/thumbs/1362952007_07.jpg',
+
+  songSrc: 'https://dl-web.dropbox.com/get/07_asaf_avidan_lets_just_call_it_fate_myzuka.org.mp3?_subject_uid=416956950&w=AABXpdxm3YOSsXxWfvVd7bR-TWq2srTazdrBrMKNzItp5w',
 
   PLAY: '&#xf04b;',
 
@@ -60,11 +72,12 @@ Toyplay.prototype = {
     temperaryTemplate = tmpl(temperaryTemplate, this.options);
     $(this.$element).append(temperaryTemplate);
 
-    $('#playbutton').on('click', $.proxy(this.togglePlay, this));
-    $('#prev').on('click', $.proxy(this.rewindAudio, this));
-    $('#next').on('click', $.proxy(this.forwardAudio, this));
+    $('#player-button-play').on('click', $.proxy(this.togglePlay, this));
+    $('#player-button-slower').on('click', $.proxy(this.rewindAudio, this));
+    $('#player-button-faster').on('click', $.proxy(this.forwardAudio, this));
     $('audio').on('timeupdate', $.proxy(this.timeupdate, this));
-    $('progress').on('click', $.proxy(this.changeCurrentTime, this));
+    $('audio').on('progress', $.proxy(this.showLoading, this));
+    $('.player-progress').on('click', $.proxy(this.changeCurrentTime, this));
   },
 
   togglePlay: function () {
@@ -79,7 +92,7 @@ Toyplay.prototype = {
   playAudio: function () {
     var audioURL = document.querySelector('#audiosrc1').value;
     var audioElm = document.querySelector('audio');
-    var btn = document.querySelector('#playbutton');
+    var btn = document.querySelector('#player-button-play');
     var PAUSE = this.options.PAUSE;
 
     btn.innerHTML = PAUSE; // Set button text == Pause
@@ -90,7 +103,7 @@ Toyplay.prototype = {
 
   pauseAudio: function () {
     var audioElm = document.querySelector('audio');
-    var btn = document.querySelector('#playbutton');
+    var btn = document.querySelector('#player-button-play');
     var audioURL = document.querySelector('#audiosrc1').value;
     var PLAY = this.options.PLAY;
 
@@ -117,19 +130,43 @@ Toyplay.prototype = {
 
   timeupdate: function() {
     var audioElm = document.querySelector('audio');
-    var progress = document.querySelector('progress');
-    var currentProgress = (100/audioElm.duration) * audioElm.currentTime;
-    progress.value = currentProgress;
+    var progress = document.querySelector('.player-progress-bar');
+    var currentProgress = (100/audioElm.duration) * audioElm.currentTime + '%';
+    $(progress).css('width', currentProgress);
+
   },
 
-  changeCurrentTime: function(obj) {
+  showLoading: function(){
+    var audioElm = document.querySelector('audio');
+    var progressLoad = document.querySelector('.player-progress-loading');
+    var currentProgress = (100/audioElm.duration) * audioElm.buffered + '%';
+    $(progressLoad).css('width', currentProgress);
+    console.log("Start: " + audioElm.buffered.start(0)
++ " End: " + audioElm.buffered.end(0));
+  },
+
+  changeCurrentTime: function(e) {
+
+    var progress      = document.querySelector('.player-progress-bar'),
+      audioElm        = document.querySelector('audio'),
+      $player         = $('#player'),
+      x               = e.pageX - $player.offset().left,
+      width           = $player.outerWidth(),
+      percentage      = x / width,
+      songPos         = Math.round(audioElm.duration * percentage);
+
+    audioElm.currentTime = songPos;
+    var currentProgress = (100/audioElm.duration) * audioElm.currentTime + '%';
+    $(progress).css('width', currentProgress);
+
+
     /*var audioElm = document.querySelector('audio');
     var progress = document.querySelector('progress');
     console.log(audioElm.duration);
     var currentProgress = (100/audioElm.duration) * audioElm.currentTime;
     progress.value = currentProgress;*/
-    console.log(obj);
-    console.log('is ok');
+   /* console.log(obj);
+    console.log('is ok');*/
   }
 }
 

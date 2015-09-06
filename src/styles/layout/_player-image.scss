@@ -1,0 +1,23 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the player-controls.
+// -----------------------------------------------------------------------------
+
+
+.player-image {
+  position: relative;
+  height: $player-image-height;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9)0%,
+                                      rgba(0,0,0,0.7)10%,
+                                      rgba(0,0,0,0.25)25%,
+                                      rgba(0,0,0,0.1)35%,
+                                      rgba(100,80,0,0.05)45%);
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}

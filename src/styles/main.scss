@@ -41,18 +41,20 @@ button {
 @import
   'base/fonts',
   'base/base',
+  'base/a',
   'base/p',
   'base/helpers';
 
 // 4. Layout-related sections
 @import
-  'layout/grid';
+  'layout/player-wrapper',
+  'layout/player-image',
+  'layout/player-controls';
 
 // 5. Components
 @import
-  'components/player',
   'components/buttons',
-  'components/img',
+  'components/player-song-name',
   'components/progress';
 
 // 6. Page-specific styles

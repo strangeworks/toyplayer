@@ -1,0 +1,52 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the player-image.
+// -----------------------------------------------------------------------------
+
+.player-controls {
+  background: $dark-grey;
+  box-shadow: inset 0 -50px 7px 0 rgba(0, 0, 0, 0.1),
+              inset 0 -3px 2px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  height: $player-controls-height;
+  width: 100%;
+}
+
+/// Top-buttons-position
+/// Inline buttons steading 'on' parent element
+#player-button-play, #player-button-mute {
+  position: absolute;
+  top: 0 - $button-height;
+}
+
+/// make play button inline left
+#player-button-play{
+  left: 0;
+}
+
+/// make mute button inline right
+#player-button-mute{
+  right: 0;
+}
+
+.extra-controls {
+  position: absolute;
+  right: $button-width;
+  height: $extra-controls-height;
+  top: 0 - $extra-controls-height;
+}
+
+.player-progress {
+  float: left;
+  width: 100%;
+  height: $player-progress-height;
+}
+
+#player-button-previous, #player-button-next, .player-song-name {
+  float: left;
+}
+
+.player-song-name {
+  text-align: center;
+  height: $player-song-name-height;
+  width: $player-song-name-width;
+}
