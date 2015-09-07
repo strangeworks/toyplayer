@@ -12,44 +12,42 @@ var Toyplay = function(element, options) {
 Toyplay.DEFAULTS = {
 
   template: [
-    '<div class = "player-image">',
+    '<div class = "toyplayer-image">',
       '<img src = {imageSrc[songNumber]}></img>',
     '</div>',
 
-    '<div class = "player-controls">',
-      '<button id="player-button-play">{PLAY}</button>',
+    '<div class = "toyplayer-controls">',
+      '<button class="toyplayer-button-play">{PLAY}</button>',
 
-      '<span class="extra-controls">',
-        '<span id="player-current-time">00.00</span>',
-        '<span id="player-duration-time">00.00</span>',
-        '<a id="player-button-slower">-30c</a>',
-        '<a id="player-button-faster">+30c</a>',
+      '<span class="toyplayer-extra-controls">',
+        '<span class="toyplayer-current-time">00.00</span>',
+        '<span class="toyplayer-duration-time">00.00</span>',
+        '<a class="toyplayer-button-slower">-30c</a>',
+        '<a class="toyplayer-button-faster">+30c</a>',
       '</span>',
 
-      '<button id="player-button-volume">{MUTE}</button>',
+      '<button class="toyplayer-button-volume">{MUTE}</button>',
 
-      '<div id="volume-bar-wrapper" class="hidden">',
-        '<span id="volume-change-bar-background">',
-          '<span id="volume-change-bar-value"></span>',
+      '<div class="toyplayer-volume-bar-wrapper" class="hidden">',
+        '<span class="toyplayer-volume-change-bar-background">',
+          '<span class="toyplayer-volume-change-bar-value"></span>',
         '</span>',
       '</div>',
 
-      '<span class="player-progress">',
-        '<span class="player-progress-loading"></span>',
-        '<span class="player-progress-bar"></span>',
+      '<span class="toyplayer-progress">',
+        '<span class="toyplayer-progress-loading"></span>',
+        '<span class="toyplayer-progress-bar"></span>',
       '</span>',
 
-      '<button id="player-button-previous">{PREV}</button>',
-      '<span class="player-song-name">',
+      '<button class="toyplayer-button-previous">{PREV}</button>',
+      '<span class="toyplayer-song-name">',
         '<p>{song[songNumber]}</p>',
         '<p>{artist[songNumber]}</p>',
       '</span>',
-      '<button id="player-button-next">{NEXT}</button>',
+      '<button class="toyplayer-button-next">{NEXT}</button>',
     '</div>',
 
-    '<audio>',
-      'Sorry, but your browser does not support the <code>audio</code> element.',
-    '</audio>',
+    '<audio></audio>',
 
   ].join(''),
 
@@ -102,19 +100,19 @@ Toyplay.prototype = {
   },
 
   listenEvents: function () {
-    $('#player-button-play').on('click', $.proxy(this.togglePlay, this));
-    $('#player-button-slower').on('click', $.proxy(this.rewindAudio, this));
-    $('#player-button-faster').on('click', $.proxy(this.forwardAudio, this));
+    $('.toyplayer-button-play').on('click', $.proxy(this.togglePlay, this));
+    $('.toyplayer-button-slower').on('click', $.proxy(this.rewindAudio, this));
+    $('.toyplayer-button-faster').on('click', $.proxy(this.forwardAudio, this));
     $('audio').on('durationchange', $.proxy(this.showDuration, this));
     $('audio').on('timeupdate', $.proxy(this.drawProgressBar, this));
     $('audio').on('timeupdate', $.proxy(this.showCurrentTime, this));
     //$('audio').on('volumechange', $.proxy(this.volumeChange, this));
-    $('#volume-change-bar-background').on('click', $.proxy(this.volumeChange, this));
+    $('.toyplayer-volume-change-bar-background').on('click', $.proxy(this.volumeChange, this));
     //$('audio').on('progress', $.proxy(this.showLoading, this));
-    $('.player-progress').on('click', $.proxy(this.changeCurrentTime, this));
-    $('#player-button-volume').on('click', $.proxy(this.toggleVolumeBar, this));
-    $('#player-button-next').on('click', $.proxy(this.changeSongToNext, this));
-    $('#player-button-previous').on('click', $.proxy(this.changeSongToPrevious, this));
+    $('.toyplayer-progress').on('click', $.proxy(this.changeCurrentTime, this));
+    $('.toyplayer-button-volume').on('click', $.proxy(this.toggleVolumeBar, this));
+    $('.toyplayer-button-next').on('click', $.proxy(this.changeSongToNext, this));
+    $('.toyplayer-button-previous').on('click', $.proxy(this.changeSongToPrevious, this));
   },
 
 
@@ -130,7 +128,7 @@ Toyplay.prototype = {
   playAudio: function () {
     var audioURL = this.options.songSrc[this.options.songNumber],
         audioElm = document.querySelector('audio'),
-        btn = document.querySelector('#player-button-play'),
+        btn = document.querySelector('.toyplayer-button-play'),
         PAUSE = this.options.PAUSE;
     btn.innerHTML = PAUSE; // Set button text == Pause
     // Get file from text box and assign it to the source of the audio element
@@ -143,7 +141,7 @@ Toyplay.prototype = {
 
   pauseAudio: function () {
     var audioElm = document.querySelector('audio'),
-        btn = document.querySelector('#player-button-play'),
+        btn = document.querySelector('.toyplayer-button-play'),
         audioURL = this.options.songSrc[this.options.songNumber],
         PLAY = this.options.PLAY;
 
@@ -153,7 +151,7 @@ Toyplay.prototype = {
 
   showDuration: function () {
     var audioElm = document.querySelector('audio'),
-        duration = document.querySelector('#player-duration-time'),
+        duration = document.querySelector('.toyplayer-duration-time'),
         timeInSec = audioElm.duration.toFixed(0);
 
     duration.innerHTML = this.createMinSecsFormat(timeInSec);
@@ -161,7 +159,7 @@ Toyplay.prototype = {
 
   showCurrentTime: function() {
     var audioElm = document.querySelector('audio'),
-        duration = document.querySelector('#player-current-time'),
+        duration = document.querySelector('.toyplayer-current-time'),
         timeInSec = audioElm.currentTime.toFixed(0);
 
     duration.innerHTML = this.createMinSecsFormat(timeInSec);
@@ -186,7 +184,7 @@ Toyplay.prototype = {
 
   drawProgressBar: function() {
     var audioElm = document.querySelector('audio'),
-        progress = document.querySelector('.player-progress-bar'),
+        progress = document.querySelector('.toyplayer-progress-bar'),
         currentProgress = (100/audioElm.duration) * audioElm.currentTime + '%';
 
     $(progress).css('width', currentProgress);
@@ -202,7 +200,7 @@ Toyplay.prototype = {
   },*/
 
   changeCurrentTime: function(e) {
-    var progress      = document.querySelector('.player-progress-bar'),
+    var progress      = document.querySelector('.toyplayer-progress-bar'),
       audioElm        = document.querySelector('audio'),
       $player         = $('#player'),
       x               = e.pageX - $player.offset().left,
@@ -231,12 +229,12 @@ Toyplay.prototype = {
   },
 
   toggleVolumeBar: function() {
-    $('#volume-bar-wrapper').toggleClass('hidden');
+    $('.toyplayer-volume-bar-wrapper').toggleClass('hidden');
   },
 
   volumeChange: function(e) {
-    var $volumeBar      = $(document.querySelector('#volume-change-bar-background')),
-        $volumeValue    = $(document.querySelector('#volume-change-bar-value')),
+    var $volumeBar      = $(document.querySelector('.toyplayer-volume-change-bar-background')),
+        $volumeValue    = $(document.querySelector('.toyplayer-volume-change-bar-value')),
         audioElm        = document.querySelector('audio'),
         y               = e.pageY - $volumeBar.offset().top,
         height          = $volumeBar.outerHeight(),
@@ -297,7 +295,7 @@ Toyplay.prototype = {
         artist = 'unknown song';
       }
 
-      document.querySelector('.player-song-name').innerHTML = ('<p>'+song+'</p><p>'+artist+'</p>');
+      document.querySelector('.toyplayer-song-name').innerHTML = ('<p>'+song+'</p><p>'+artist+'</p>');
   }
 }
 

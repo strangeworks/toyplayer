@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 
-#volume-bar-wrapper {
+.toyplayer-volume-bar-wrapper {
   position: absolute;
   width: $volume-bar-wrapper-width;
   height: $volume-bar-wrapper-height;
@@ -18,7 +18,7 @@
   border-radius: $volume-bar-wrapper-border-radius;
 }
 
-#volume-change-bar-background {
+.toyplayer-volume-change-bar-background {
   position: absolute;
   overflow: hidden;
   width: $volume-bar-width;
@@ -32,11 +32,11 @@
   }
 }
 
-#volume-change-bar-background {
+.toyplayer-volume-change-bar-background {
   background-color: $silver;
 }
 
-#volume-change-bar-value {
+.toyplayer-volume-change-bar-value {
   position: absolute;
   bottom: 0;
   background-color: $red;
