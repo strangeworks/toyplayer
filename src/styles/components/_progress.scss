@@ -6,6 +6,10 @@
 .player-progress {
   background-color: $black;
   position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .player-progress-bar,  .player-progress-loading {

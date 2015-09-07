@@ -102,6 +102,28 @@ $player-song-name-width: ($player-width - ($button-width*2));
 
 $player-song-name-height: 100%-$player-progress-height;
 
+$volume-bar-wrapper-height: 130px;
+
+$volume-bar-wrapper-width: 30px;
+
+$volume-bar-height: 100px;
+
+$volume-bar-width: 5px;
+
+$volume-bar-wrapper-margin-top: 0 - ($button-height/2 + $volume-bar-height);
+
+$volume-bar-wrapper-margin-right: 10px;
+
+$volume-bar-wrapper-border-radius: 7px;
+
+$volume-bar-margin-bottom: ($volume-bar-wrapper-height - $volume-bar-height) / 2;
+
+$volume-bar-margin-left: ($volume-bar-wrapper-width - $volume-bar-width) / 2;
+
+$volume-bar-border-radius: 2px;
+
+$extra-controls-width: $player-width - $button-width*2;
+
 /// Breakpoints variables
 ///$slicer-breakpoints: 0 400px 600px 800px 1050px;
 

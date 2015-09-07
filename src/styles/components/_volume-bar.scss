@@ -1,0 +1,45 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+
+#volume-bar-wrapper {
+  position: absolute;
+  width: $volume-bar-wrapper-width;
+  height: $volume-bar-wrapper-height;
+  top: $volume-bar-wrapper-margin-top;
+  right: $volume-bar-wrapper-margin-right;
+  background-color: $half-transparent;
+  border-radius: $volume-bar-wrapper-border-radius;
+}
+
+#volume-change-bar-background {
+  position: absolute;
+  overflow: hidden;
+  width: $volume-bar-width;
+  height: $volume-bar-height;
+  bottom: $volume-bar-margin-bottom;
+  left: $volume-bar-margin-left;
+  border-radius: $volume-bar-border-radius;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#volume-change-bar-background {
+  background-color: $silver;
+}
+
+#volume-change-bar-value {
+  position: absolute;
+  bottom: 0;
+  background-color: $red;
+  width: 100%;
+  height: 100%;
+}

@@ -13,18 +13,22 @@
 
 /// Top-buttons-position
 /// Inline buttons steading 'on' parent element
-#player-button-play, #player-button-mute {
+#player-button-play, #player-button-volume {
   position: absolute;
   top: 0 - $button-height;
 }
 
 /// make play button inline left
-#player-button-play{
+#player-button-play {
   left: 0;
 }
 
 /// make mute button inline right
-#player-button-mute{
+#player-button-volume {
+  right: 0;
+}
+
+#player-button-volume {
   right: 0;
 }
 
@@ -49,4 +53,19 @@
   text-align: center;
   height: $player-song-name-height;
   width: $player-song-name-width;
+}
+
+.extra-controls {
+  width: $extra-controls-width;
+  color: $grey;
+}
+
+.extra-controls a {
+  margin: 10px;
+  float: right;
+}
+
+.extra-controls span {
+  margin: 10px;
+  float: left;
 }

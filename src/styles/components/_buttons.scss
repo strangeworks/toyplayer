@@ -24,9 +24,10 @@ button {
   &:focus {
     outline: none;
     font-size: $button-font-size;
+  }
+
+  &:active {
+    font-size: $button-font-size;
     color: $red;
-    border: 0px;
-    border-right: 2px solid $half-transparent;
-    border-left: 2px solid $half-transparent;
   }
 }
