@@ -5,7 +5,7 @@ var $ = require('jquery'),
 var Toyplay = function (element, options) {
   this.$element = $(element)
   this.options = options
-  this.appendPlayer.call(this)
+  this.appendPlayer()
 }
 
 Toyplay.DEFAULTS = {
