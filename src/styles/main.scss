@@ -33,35 +33,35 @@ button {
 
 // 2. Configuration and helpers
 @import
-  'utils/variables',
-  'utils/functions',
-  'utils/mixins';
+  'utils/toyplayer_variables',
+  'utils/toyplayer_functions',
+  'utils/toyplayer_mixins';
 
 // 3. Base stuff
 @import
-  'base/fonts',
-  'base/base',
-  'base/a',
-  'base/p',
-  'base/helpers';
+  'base/toyplayer_fonts',
+  'base/toyplayer_base',
+  'base/toyplayer_controls_a',
+  'base/toyplayer_controls_p',
+  'base/toyplayer_helpers';
 
 // 4. Layout-related sections
 @import
-  'layout/player-wrapper',
-  'layout/player-image',
-  'layout/player-controls';
+  'layout/player_wrapper',
+  'layout/toyplayer_image',
+  'layout/toyplayer_controls';
 
 // 5. Components
 @import
-  'components/buttons',
-  'components/player-song-name',
-  'components/progress',
-  'components/volume-bar';
+  'components/toyplayer_controls_buttons',
+  'components/toyplayer_song_name',
+  'components/toyplayer_progress_bar',
+  'components/toyplayer_volume_bar';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/toyplayer_home';
 
 // 7. Themes
 @import
-  'themes/default';
+  'themes/toyplayer_default';

@@ -28,32 +28,29 @@
   right: 0;
 }
 
-.toyplayer-extra-controls {
-  position: absolute;
-  right: $button-width;
-  height: $extra-controls-height;
-  top: 0 - $extra-controls-height;
-}
-
 .toyplayer-progress {
   float: left;
   width: 100%;
   height: $player-progress-height;
 }
 
-.toyplayer-button-previous, .toyplayer-button-next, .toyplayer-song-name {
+.toyplayer-button-previous, .toyplayer-song-name, .toyplayer-button-next {
   float: left;
 }
 
 .toyplayer-song-name {
   text-align: center;
-  height: $player-song-name-height;
-  width: $player-song-name-width;
+  height: $song-name-height;
+  width: $song-name-width;
 }
 
 .toyplayer-extra-controls {
+  position: absolute;
   width: $extra-controls-width;
   color: $grey;
+  right: $button-width;
+  height: $extra-controls-height;
+  top: 0 - $extra-controls-height;
 }
 
 .toyplayer-extra-controls a {

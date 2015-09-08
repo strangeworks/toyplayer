@@ -1,6 +1,6 @@
-var $ = require('jquery')
-var tmpl = require('riot-tmpl')
-var Plugin = require('./plugin.js')
+var $ = require('jquery'),
+    tmpl = require('riot-tmpl'),
+    Plugin = require('./plugin.js')
 
 var Toyplay = function (element, options) {
   this.$element = $(element)
@@ -48,7 +48,7 @@ Toyplay.DEFAULTS = {
 
     '</div>',
 
-    '<audio></audio>',
+    '<audio>Canvas not supported</audio>'
 
   ].join(''),
 
@@ -149,16 +149,16 @@ Toyplay.prototype = {
 
   showDuration: function () {
     var audioElm = document.querySelector('audio'),
-      duration = document.querySelector('.toyplayer-duration-time'),
-      timeInSec = audioElm.duration.toFixed(0)
+        duration = document.querySelector('.toyplayer-duration-time'),
+        timeInSec = audioElm.duration.toFixed(0)
 
     duration.innerHTML = this.createMinSecsFormat(timeInSec)
   },
 
   showCurrentTime: function () {
     var audioElm = document.querySelector('audio'),
-      duration = document.querySelector('.toyplayer-current-time'),
-      timeInSec = audioElm.currentTime.toFixed(0)
+        duration = document.querySelector('.toyplayer-current-time'),
+        timeInSec = audioElm.currentTime.toFixed(0)
 
     duration.innerHTML = this.createMinSecsFormat(timeInSec)
   },
@@ -180,20 +180,20 @@ Toyplay.prototype = {
 
   drawProgressBar: function () {
     var audioElm = document.querySelector('audio'),
-      progress = document.querySelector('.toyplayer-progress-value'),
-      currentProgress = (100 / audioElm.duration) * audioElm.currentTime + '%'
+        progress = document.querySelector('.toyplayer-progress-value'),
+        currentProgress = (100 / audioElm.duration) * audioElm.currentTime + '%'
 
     $(progress).css('width', currentProgress)
   },
 
   changeCurrentTime: function (e) {
     var progress = document.querySelector('.toyplayer-progress-value'),
-      audioElm = document.querySelector('audio'),
-      $player = $('#player'),
-      x = e.pageX - $player.offset().left,
-      width = $player.outerWidth(),
-      percentage = x / width,
-      songPos = Math.round(audioElm.duration * percentage)
+        audioElm = document.querySelector('audio'),
+        $player = $('#player'),
+        x = e.pageX - $player.offset().left,
+        width = $player.outerWidth(),
+        percentage = x / width,
+        songPos = Math.round(audioElm.duration * percentage)
 
     audioElm.currentTime = songPos
     this.drawProgressBar()
@@ -221,22 +221,22 @@ Toyplay.prototype = {
 
   volumeChange: function (e) {
     var $volumeBar = $(document.querySelector('.toyplayer-volume-change-bar-roller')),
-      $volumeValue = $(document.querySelector('.toyplayer-volume-change-bar-value')),
-      audioElm = document.querySelector('audio'),
-      y = e.pageY - $volumeBar.offset().top,
-      height = $volumeBar.outerHeight(),
-      percentage = 1 - (y / height),
-      songPos = Math.round(percentage)
+        $volumeValue = $(document.querySelector('.toyplayer-volume-change-bar-value')),
+        audioElm = document.querySelector('audio'),
+        y = e.pageY - $volumeBar.offset().top,
+        height = $volumeBar.outerHeight(),
+        percentage = 1 - (y / height),
+        songPos = Math.round(percentage)
 
     audioElm.volume = percentage
     var volumeControlHeight = (percentage * 100) + '%'
-    $volumeValue.css('height', volumeControlHeight)
+        $volumeValue.css('height', volumeControlHeight)
 
   },
 
   changeSongToNext: function () {
     var songNumber = this.options.songNumber,
-      songSrc = this.options.songSrc
+        songSrc = this.options.songSrc
 
     if (songSrc[songNumber + 1]) {
       this.options.songNumber += 1
@@ -248,7 +248,7 @@ Toyplay.prototype = {
 
   changeSongToPrevious: function () {
     var songNumber = this.options.songNumber,
-      songSrc = this.options.songSrc
+        songSrc = this.options.songSrc
 
     if (songSrc[songNumber - 1]) {
       this.options.songNumber -= 1
@@ -260,8 +260,8 @@ Toyplay.prototype = {
 
   displayPicture: function () {
     var songNumber = this.options.songNumber,
-      imageSrc = this.options.imageSrc,
-      $image = $(document.querySelector('img'))
+        imageSrc = this.options.imageSrc,
+        $image = $(document.querySelector('img'))
 
     if (imageSrc[songNumber]) {
       $image.attr('src', imageSrc[songNumber])
@@ -272,8 +272,8 @@ Toyplay.prototype = {
 
   displaySongName: function () {
     var songNumber = this.options.songNumber,
-      song = this.options.song[songNumber],
-      artist = this.options.artist[songNumber]
+        song = this.options.song[songNumber],
+        artist = this.options.artist[songNumber]
 
     if (!artist) {
       artist = 'unknown artist'

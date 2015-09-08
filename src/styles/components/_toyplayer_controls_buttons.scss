@@ -13,8 +13,9 @@
   border-right: 2px solid $half-transparent;
   border-left: 2px solid $half-transparent;
   transition: all 0.5s;
-  width: $button-width;
+  width: $button-width - 1px;
   height: $button-height;
+
 
   &:hover {
     font-size: $button-font-hover-size;
