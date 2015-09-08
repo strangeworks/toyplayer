@@ -1,50 +1,51 @@
-var $ = require('jquery');
-var tmpl = require ('riot-tmpl');
+var $ = require('jquery')
+var tmpl = require('riot-tmpl')
+var Plugin = require('./plugin.js')
 
-var Plugin = require('./plugin.js');
-
-var Toyplay = function(element, options) {
+var Toyplay = function (element, options) {
   this.$element = $(element)
   this.options = options
-  this.appendPlayer.call(this);
+  this.appendPlayer.call(this)
 }
 
 Toyplay.DEFAULTS = {
-
   template: [
-    '<div class = "toyplayer-image">',
+    '<div class = "toyplayer-song-image">',
       '<img src = {imageSrc[songNumber]}></img>',
     '</div>',
 
     '<div class = "toyplayer-controls">',
+
       '<button class="toyplayer-button-play">{PLAY}</button>',
 
-      '<span class="toyplayer-extra-controls">',
+      '<div class="toyplayer-extra-controls">',
         '<span class="toyplayer-current-time">00.00</span>',
         '<span class="toyplayer-duration-time">00.00</span>',
         '<a class="toyplayer-button-slower">-30c</a>',
         '<a class="toyplayer-button-faster">+30c</a>',
-      '</span>',
+      '</div>',
 
       '<button class="toyplayer-button-volume">{MUTE}</button>',
 
-      '<div class="toyplayer-volume-bar-wrapper" class="hidden">',
-        '<span class="toyplayer-volume-change-bar-background">',
-          '<span class="toyplayer-volume-change-bar-value"></span>',
+      '<div class="toyplayer-volume-bar-block" class="hidden">',
+        '<span class="toyplayer-volume-change-bar-roller">',
+        '<span class="toyplayer-volume-change-bar-value"></span>',
         '</span>',
       '</div>',
 
-      '<span class="toyplayer-progress">',
-        '<span class="toyplayer-progress-loading"></span>',
-        '<span class="toyplayer-progress-bar"></span>',
-      '</span>',
+      '<div class="toyplayer-progress">',
+        '<span class="toyplayer-progress-value"></span>',
+      '</div>',
 
       '<button class="toyplayer-button-previous">{PREV}</button>',
-      '<span class="toyplayer-song-name">',
+
+      '<div class="toyplayer-song-name">',
         '<p>{song[songNumber]}</p>',
         '<p>{artist[songNumber]}</p>',
-      '</span>',
+      '</div>',
+
       '<button class="toyplayer-button-next">{NEXT}</button>',
+
     '</div>',
 
     '<audio></audio>',
@@ -60,9 +61,9 @@ Toyplay.DEFAULTS = {
   ],
 
   songSrc: [
-    'https://dl-web.dropbox.com/get/07_asaf_avidan_lets_just_call_it_fate_myzuka.org.mp3?_subject_uid=416956950&w=AABXpdxm3YOSsXxWfvVd7bR-TWq2srTazdrBrMKNzItp5w',
-    'https://dl-web.dropbox.com/get/04_asaf_avidan_cyclamen_myzuka.org.mp3?_subject_uid=416956950&w=AACkPx4254foi-B5fKgzsRMVatohP_q72RPs6685wrr-Ig',
-    'https://dl-web.dropbox.com/get/03_asaf_avidan_love_it_or_leave_it_myzuka.org.mp3?_subject_uid=416956950&w=AAARxWsnDUEQyouWWFd2tmsZ0SK-OmCP_n-uxAW8no3wgQ'
+    'http://a.tumblr.com/tumblr_lyr37pUOvg1qbgvpzo1.mp3',
+    'http://www.sp-fan.ru/media/music/file/Men_Without_Hats_-_The_Safety_Dance.mp3',
+    'http://www.mcdman.com/music/mp3/Fields/PartyHard.mp3'
   ],
 
   song: [
@@ -91,280 +92,206 @@ Toyplay.DEFAULTS = {
 }
 
 Toyplay.prototype = {
-
-  appendPlayer: function(e) {
-    var temperaryTemplate = this.options.template;
-    temperaryTemplate = tmpl(temperaryTemplate, this.options);
-    $(this.$element).append(temperaryTemplate);
-    this.listenEvents();
+  appendPlayer: function (e) {
+    var temperaryTemplate = this.options.template
+    temperaryTemplate = tmpl(temperaryTemplate, this.options)
+    $(this.$element).append(temperaryTemplate)
+    this.listenEvents()
   },
 
   listenEvents: function () {
-    $('.toyplayer-button-play').on('click', $.proxy(this.togglePlay, this));
-    $('.toyplayer-button-slower').on('click', $.proxy(this.rewindAudio, this));
-    $('.toyplayer-button-faster').on('click', $.proxy(this.forwardAudio, this));
-    $('audio').on('durationchange', $.proxy(this.showDuration, this));
-    $('audio').on('timeupdate', $.proxy(this.drawProgressBar, this));
-    $('audio').on('timeupdate', $.proxy(this.showCurrentTime, this));
-    //$('audio').on('volumechange', $.proxy(this.volumeChange, this));
-    $('.toyplayer-volume-change-bar-background').on('click', $.proxy(this.volumeChange, this));
-    //$('audio').on('progress', $.proxy(this.showLoading, this));
-    $('.toyplayer-progress').on('click', $.proxy(this.changeCurrentTime, this));
-    $('.toyplayer-button-volume').on('click', $.proxy(this.toggleVolumeBar, this));
-    $('.toyplayer-button-next').on('click', $.proxy(this.changeSongToNext, this));
-    $('.toyplayer-button-previous').on('click', $.proxy(this.changeSongToPrevious, this));
+    $('.toyplayer-button-play').on('click', $.proxy(this.togglePlay, this))
+    $('.toyplayer-button-slower').on('click', $.proxy(this.rewindAudio, this))
+    $('.toyplayer-button-faster').on('click', $.proxy(this.forwardAudio, this))
+    $('audio').on('durationchange', $.proxy(this.showDuration, this))
+    $('audio').on('timeupdate', $.proxy(this.drawProgressBar, this))
+    $('audio').on('timeupdate', $.proxy(this.showCurrentTime, this))
+    $('.toyplayer-volume-change-bar-roller').on('click', $.proxy(this.volumeChange, this))
+    $('.toyplayer-progress').on('click', $.proxy(this.changeCurrentTime, this))
+    $('.toyplayer-button-volume').on('click', $.proxy(this.toggleVolumeBar, this))
+    $('.toyplayer-button-next').on('click', $.proxy(this.changeSongToNext, this))
+    $('.toyplayer-button-previous').on('click', $.proxy(this.changeSongToPrevious, this))
   },
 
-
   togglePlay: function () {
-    var audioElm = document.querySelector('audio');
-    if (audioElm.paused == true) {
-     this.playAudio();    //  if player is paused, then play the file
+    var audioElm = document.querySelector('audio')
+
+    if (audioElm.paused) {
+      this.playAudio(); //  if player is paused, then play the file
     } else {
-     this.pauseAudio();   //  if player is playing, then pause
+      this.pauseAudio(); //  if player is playing, then pause
     }
   },
 
   playAudio: function () {
     var audioURL = this.options.songSrc[this.options.songNumber],
-        audioElm = document.querySelector('audio'),
-        btn = document.querySelector('.toyplayer-button-play'),
-        PAUSE = this.options.PAUSE;
-    btn.innerHTML = PAUSE; // Set button text == Pause
-    // Get file from text box and assign it to the source of the audio element
-    audioElm.src = audioURL;
-    audioElm.play();
+      audioElm = document.querySelector('audio'),
+      btn = document.querySelector('.toyplayer-button-play'),
+      PAUSE = this.options.PAUSE
 
-    this.changePicture();
-    this.changeSongName();
+    btn.innerHTML = PAUSE
+    audioElm.src = audioURL
+    audioElm.play()
+
+    this.displayPicture()
+    this.displaySongName()
   },
 
   pauseAudio: function () {
     var audioElm = document.querySelector('audio'),
-        btn = document.querySelector('.toyplayer-button-play'),
-        audioURL = this.options.songSrc[this.options.songNumber],
-        PLAY = this.options.PLAY;
+      btn = document.querySelector('.toyplayer-button-play'),
+      audioURL = this.options.songSrc[this.options.songNumber],
+      PLAY = this.options.PLAY
 
     btn.innerHTML = PLAY; // Set button text == Play
-    audioElm.pause();
+    audioElm.pause()
   },
 
   showDuration: function () {
     var audioElm = document.querySelector('audio'),
-        duration = document.querySelector('.toyplayer-duration-time'),
-        timeInSec = audioElm.duration.toFixed(0);
+      duration = document.querySelector('.toyplayer-duration-time'),
+      timeInSec = audioElm.duration.toFixed(0)
 
-    duration.innerHTML = this.createMinSecsFormat(timeInSec);
+    duration.innerHTML = this.createMinSecsFormat(timeInSec)
   },
 
-  showCurrentTime: function() {
+  showCurrentTime: function () {
     var audioElm = document.querySelector('audio'),
-        duration = document.querySelector('.toyplayer-current-time'),
-        timeInSec = audioElm.currentTime.toFixed(0);
+      duration = document.querySelector('.toyplayer-current-time'),
+      timeInSec = audioElm.currentTime.toFixed(0)
 
-    duration.innerHTML = this.createMinSecsFormat(timeInSec);
+    duration.innerHTML = this.createMinSecsFormat(timeInSec)
   },
 
-  rewindAudio: function() {
-     // Check for audio element support.
+  rewindAudio: function () {
     if (window.HTMLAudioElement) {
-      var audioElm = document.querySelector('audio');
-      audioElm.currentTime -= 30;
+      var audioElm = document.querySelector('audio')
+      audioElm.currentTime -= 30
     }
   },
 
   // Fast forwards the audio file by 30 seconds.
-  forwardAudio: function() {
-    // Check for audio element support.
+  forwardAudio: function () {
     if (window.HTMLAudioElement) {
-      var audioElm = document.querySelector('audio');
-      audioElm.currentTime += 30;
+      var audioElm = document.querySelector('audio')
+      audioElm.currentTime += 30
     }
   },
 
-  drawProgressBar: function() {
+  drawProgressBar: function () {
     var audioElm = document.querySelector('audio'),
-        progress = document.querySelector('.toyplayer-progress-bar'),
-        currentProgress = (100/audioElm.duration) * audioElm.currentTime + '%';
+      progress = document.querySelector('.toyplayer-progress-value'),
+      currentProgress = (100 / audioElm.duration) * audioElm.currentTime + '%'
 
-    $(progress).css('width', currentProgress);
+    $(progress).css('width', currentProgress)
   },
 
-  /*showLoading: function(){
-    var audioElm = document.querySelector('audio');
-    var progressLoad = document.querySelector('.player-progress-loading');
-    var currentProgress = (100/audioElm.duration) * audioElm.buffered + '%';
-    $(progressLoad).css('width', currentProgress);
-    console.log("Start: " + audioElm.buffered.start(0)
-+ " End: " + audioElm.buffered.end(0));
-  },*/
+  changeCurrentTime: function (e) {
+    var progress = document.querySelector('.toyplayer-progress-value'),
+      audioElm = document.querySelector('audio'),
+      $player = $('#player'),
+      x = e.pageX - $player.offset().left,
+      width = $player.outerWidth(),
+      percentage = x / width,
+      songPos = Math.round(audioElm.duration * percentage)
 
-  changeCurrentTime: function(e) {
-    var progress      = document.querySelector('.toyplayer-progress-bar'),
-      audioElm        = document.querySelector('audio'),
-      $player         = $('#player'),
-      x               = e.pageX - $player.offset().left,
-      width           = $player.outerWidth(),
-      percentage      = x / width,
-      songPos         = Math.round(audioElm.duration * percentage);
-
-    audioElm.currentTime = songPos;
-    this.drawProgressBar();
+    audioElm.currentTime = songPos
+    this.drawProgressBar()
   },
 
-  createMinSecsFormat: function(timeInSec) {
-    var minutes = Math.floor(timeInSec / 60).toString();
-    var seconds = (timeInSec - minutes * 60).toString();
+  createMinSecsFormat: function (timeInSec) {
+    var minutes = Math.floor(timeInSec / 60).toString(),
+      seconds = (timeInSec - minutes * 60).toString()
 
     if (minutes.length < 2) {
-      minutes = '0' + minutes;
+      minutes = '0' + minutes
     }
 
     if (seconds.length < 2) {
-      seconds = '0' + seconds;
+      seconds = '0' + seconds
     }
 
-    var result = minutes + '.' + seconds;
-    return result;
+    var result = minutes + '.' + seconds
+    return result
   },
 
-  toggleVolumeBar: function() {
-    $('.toyplayer-volume-bar-wrapper').toggleClass('hidden');
+  toggleVolumeBar: function () {
+    $('.toyplayer-volume-bar-block').toggleClass('hidden')
   },
 
-  volumeChange: function(e) {
-    var $volumeBar      = $(document.querySelector('.toyplayer-volume-change-bar-background')),
-        $volumeValue    = $(document.querySelector('.toyplayer-volume-change-bar-value')),
-        audioElm        = document.querySelector('audio'),
-        y               = e.pageY - $volumeBar.offset().top,
-        height          = $volumeBar.outerHeight(),
-        percentage      = 1 - (y / height),
-        songPos         = Math.round(percentage);
+  volumeChange: function (e) {
+    var $volumeBar = $(document.querySelector('.toyplayer-volume-change-bar-roller')),
+      $volumeValue = $(document.querySelector('.toyplayer-volume-change-bar-value')),
+      audioElm = document.querySelector('audio'),
+      y = e.pageY - $volumeBar.offset().top,
+      height = $volumeBar.outerHeight(),
+      percentage = 1 - (y / height),
+      songPos = Math.round(percentage)
 
-    audioElm.volume = percentage;
-    var volumeControlHeight = (percentage * 100) + '%';
-    $volumeValue.css('height', volumeControlHeight);
+    audioElm.volume = percentage
+    var volumeControlHeight = (percentage * 100) + '%'
+    $volumeValue.css('height', volumeControlHeight)
 
   },
 
-  changeSongToNext: function() {
-    var songNumber      = this.options.songNumber,
-        songSrc         = this.options.songSrc;
+  changeSongToNext: function () {
+    var songNumber = this.options.songNumber,
+      songSrc = this.options.songSrc
 
-    if (songSrc[songNumber+1]) {
-      this.options.songNumber += 1;
-      console.log(this.options.songNumber);
-      this.playAudio();
-    }
-  },
+    if (songSrc[songNumber + 1]) {
+      this.options.songNumber += 1
+      console.log(this.options.songNumber)
 
-  changeSongToPrevious: function() {
-    var songNumber      = this.options.songNumber,
-        songSrc         = this.options.songSrc;
-
-    if (songSrc[songNumber-1]) {
-      this.options.songNumber -= 1;
-      console.log(this.options.songNumber);
-      this.playAudio();
+      this.playAudio()
     }
   },
 
-  changePicture: function() {
-    var songNumber      = this.options.songNumber,
-        imageSrc        = this.options.imageSrc,
-        $image          = $(document.querySelector('img'));
+  changeSongToPrevious: function () {
+    var songNumber = this.options.songNumber,
+      songSrc = this.options.songSrc
+
+    if (songSrc[songNumber - 1]) {
+      this.options.songNumber -= 1
+      console.log(this.options.songNumber)
+
+      this.playAudio()
+    }
+  },
+
+  displayPicture: function () {
+    var songNumber = this.options.songNumber,
+      imageSrc = this.options.imageSrc,
+      $image = $(document.querySelector('img'))
 
     if (imageSrc[songNumber]) {
-      $image.attr('src', imageSrc[songNumber]);
-    }
-    else {
-      $image.attr('src', this.options.defaultImageSrc);
+      $image.attr('src', imageSrc[songNumber])
+    } else {
+      $image.attr('src', this.options.defaultImageSrc)
     }
   },
 
-  changeSongName: function() {
-    var songNumber      = this.options.songNumber,
-        song            = this.options.song[songNumber],
-        artist          = this.options.artist[songNumber];
+  displaySongName: function () {
+    var songNumber = this.options.songNumber,
+      song = this.options.song[songNumber],
+      artist = this.options.artist[songNumber]
 
-      if(!artist) {
-        artist = 'unknown artist';
-      }
+    if (!artist) {
+      artist = 'unknown artist'
+    }
 
-      if(!song) {
-        artist = 'unknown song';
-      }
+    if (!song) {
+      artist = 'unknown song'
+    }
 
-      document.querySelector('.toyplayer-song-name').innerHTML = ('<p>'+song+'</p><p>'+artist+'</p>');
+    document.querySelector('.toyplayer-song-name').innerHTML = ('<p>' + song + '</p><p>' + artist + '</p>')
   }
 }
 
-new Plugin('toyplay', Toyplay);
+new Plugin('toyplay', Toyplay)
 
-(function() {
-  $('[data-toyplay]').toyplay();
+;(function () {
+  $('[data-toyplay]').toyplay()
 })()
 
-/*var currentFile = "";
-  function playAudio() {
-    // Check for audio element support.
-    if (window.HTMLAudioElement) {
-      try {
-        var oAudio = document.getElementById('myaudio');
-        var btn = document.getElementById('play');
-        var audioURL = document.getElementById('audiofile');
-
-        //Skip loading if current file hasn't changed.
-        if (audioURL.value !== currentFile) {
-          oAudio.src = audioURL.value;
-          currentFile = audioURL.value;
-        }
-
-        // Tests the paused attribute and set state.
-        if (oAudio.paused) {
-          oAudio.play();
-          btn.textContent = "Pause";
-        }
-        else {
-          oAudio.pause();
-          btn.textContent = "Play";
-        }
-    }
-    catch (e) {
-      // Fail silently but show in F12 developer tools console
-       if(window.console && console.error("Error:" + e));
-      }
-    }
-  }*/
- /* pub.jumpSong = function(e){
-    var x               = e.pageX - $duration.offset().left,
-        width           = $duration.outerWidth(),
-        percentage      = x / width,
-        percentageWidth = percentage * 100,
-        pixelWidth      = width * percentage,
-        songPos         = Math.round(songDurSec * percentage),
-        posMin          = Math.floor(songPos / 60),
-        posSec          = ((songPos % 60) < 10) ? "0" + (songPos % 60) : songPos % 60 ;
-
-    Player.pauseSong();
-
-    $currPos.removeClass('animate');
-    $currPos.css('width', percentageWidth+"%");
-
-    $currTime.text(posMin+":"+posSec);
-
-    audio[index].currentTime = songPos;
-
-    // Interval to wait for currPos bar to jump to position without animation
-    var interval = setInterval(function(){
-      if($currPos.outerWidth() == pixelWidth){
-        clearInterval(interval);
-        $playPause.removeClass('play').addClass('pause');
-        Player.playSong();
-      }
-    }, 10);
-  }
-  http://codepen.io/ZachCase/pen/LVmVRx
-  http://getbootstrap.com/components/#progress
-  Progress bars
-*/
+// / Progress-bar example
+// / http://codepen.io/ZachCase/pen/LVmVRx

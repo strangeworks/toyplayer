@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 
-.toyplayer-image {
+.toyplayer-song-image {
   position: relative;
   height: $player-image-height;
   width: 100%;
@@ -14,7 +14,7 @@
                                       rgba(100,80,0,0.05)45%);
 }
 
-.toyplayer-image img {
+.toyplayer-song-image img {
   position: absolute;
   top: 0;
   left: 0;

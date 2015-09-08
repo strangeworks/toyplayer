@@ -50,7 +50,6 @@ $red: #db3d48 !default;
 /// @type Color
 $transparent: rgba(0,0,0,0);
 
-
 /// Transparent grey
 /// @type Color
 $half-transparent: rgba(255,255,255,0.06);
@@ -59,78 +58,87 @@ $half-transparent: rgba(255,255,255,0.06);
 /// @type Color
 $box-shadow-color: rgba(0,0,0,0.5);
 
-/// Box-shadow color
+/// Box-shadow
 /// @type Color
 $shadow-color: rgba(0,0,0,0.5);
 
-/// Box-shadow color
-/// @type Color
-$box-shadow-outside-color: rgba(0,0,0,0.3);
-
+/// Link
+/// @type Length
 $link-margin: 20px;
 
+/// @type Length
 $link-font-size: 1rem;
 
-$extra-controls-height: 40px;
-/// Player margin
+/// Player
 /// @type Length
 $player-margin: 200px;
 
-/// Player width
 /// @type Length
 $player-width: 640px;
 
-/// Player height
 /// @type Length
 $player-height: 435px;
 
+/// Player-image
+/// @type Length
 $player-image-height: 75%;
 
+/// Player-controls
+/// @type Length
 $player-controls-height: 100%-$player-image-height;
 
+/// Player-progress
+/// @type Length
 $player-progress-height: 7.5%;
 
-/// Button width
+/// Button
 /// @type Length
 $button-width: $player-height * (100% - $player-progress-height)/100% * $player-controls-height/100%;
 
-/// Button height
 /// @type Length
 $button-height: $button-width;
 
+/// Song-name
+/// @type Length
 $player-song-name-width: ($player-width - ($button-width*2));
 
+/// @type Length
 $player-song-name-height: 100%-$player-progress-height;
 
+/// Volume-bar
+/// @type Length
 $volume-bar-wrapper-height: 130px;
 
+/// @type Length
 $volume-bar-wrapper-width: 30px;
 
+/// @type Length
 $volume-bar-height: 100px;
 
+/// @type Length
 $volume-bar-width: 5px;
 
+/// @type Length
 $volume-bar-wrapper-margin-top: 0 - ($button-height/2 + $volume-bar-height);
 
+/// @type Length
 $volume-bar-wrapper-margin-right: 10px;
 
+/// @type Length
 $volume-bar-wrapper-border-radius: 7px;
 
+/// @type Length
 $volume-bar-margin-bottom: ($volume-bar-wrapper-height - $volume-bar-height) / 2;
 
+/// @type Length
 $volume-bar-margin-left: ($volume-bar-wrapper-width - $volume-bar-width) / 2;
 
+/// @type Length
 $volume-bar-border-radius: 2px;
 
+/// Extra controls
+/// @type Length
 $extra-controls-width: $player-width - $button-width*2;
 
-/// Breakpoints variables
-///$slicer-breakpoints: 0 400px 600px 800px 1050px;
-
-
-
-/// Relative or absolute URL where all assets are served from
-/// @type String
-/// @example scss - When using a CDN
-///   $base-url: 'http://cdn.example.com/assets/';
-$base-url: '/assets/' !default;
+/// @type Length
+$extra-controls-height: 40px;

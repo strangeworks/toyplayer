@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 
-.toyplayer-volume-bar-wrapper {
+.toyplayer-volume-bar-block {
   position: absolute;
   width: $volume-bar-wrapper-width;
   height: $volume-bar-wrapper-height;
@@ -18,7 +18,7 @@
   border-radius: $volume-bar-wrapper-border-radius;
 }
 
-.toyplayer-volume-change-bar-background {
+.toyplayer-volume-change-bar-roller {
   position: absolute;
   overflow: hidden;
   width: $volume-bar-width;
@@ -26,14 +26,11 @@
   bottom: $volume-bar-margin-bottom;
   left: $volume-bar-margin-left;
   border-radius: $volume-bar-border-radius;
+  background-color: $silver;
 
   &:hover {
     cursor: pointer;
   }
-}
-
-.toyplayer-volume-change-bar-background {
-  background-color: $silver;
 }
 
 .toyplayer-volume-change-bar-value {
