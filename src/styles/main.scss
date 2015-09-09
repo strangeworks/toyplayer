@@ -58,10 +58,6 @@ button {
   'components/toyplayer_progress_bar',
   'components/toyplayer_volume_bar';
 
-// 6. Page-specific styles
-@import
-  'pages/toyplayer_home';
-
-// 7. Themes
-@import
-  'themes/toyplayer_default';
+// 5. Vendor
+//@import
+//  'vendor/scss/font-awesome';
