@@ -27,7 +27,8 @@ button {
 @charset 'UTF-8';
 
 // 1. Vendors
-//@import
+@import
+    'vendor/scss/font-awesome';
 //  'vendor/font-awesome.scss',
 //  'vendor/font-awesome.min.css';
 
@@ -57,7 +58,3 @@ button {
   'components/toyplayer_song_name',
   'components/toyplayer_progress_bar',
   'components/toyplayer_volume_bar';
-
-// 5. Vendor
-//@import
-//  'vendor/scss/font-awesome';
