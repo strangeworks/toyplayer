@@ -3,10 +3,7 @@
 //
 
 .toyplayer-controls p {
-  text-shadow: $toyplayer-controls-textshadow-distance-x
-               $toyplayer-controls-textshadow-distance-y
-               $toyplayer-controls-textshadow-blur-radius
-               $toyplayer-color-shadow;
+  text-shadow: $toyplayer-controls-textshadow;
   font-family: $toyplayer-text-font-stack;
   margin-bottom: $toyplayer-controls-p-margin-bottom;
 }

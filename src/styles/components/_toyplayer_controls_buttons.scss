@@ -8,10 +8,7 @@
   color: $toyplayer-color-silver;
   font-family: $toyplayer-controls-button-font-family;
   font-size: $toyplayer-controls-button-font-size;
-  text-shadow: $toyplayer-controls-textshadow-distance-x
-               $toyplayer-controls-textshadow-distance-y
-               $toyplayer-controls-textshadow-blur-radius
-               $toyplayer-color-shadow;
+  text-shadow: $toyplayer-controls-textshadow;
   border-top: $toyplayer-controls-button-border-top-bottom-width;
   border-bottom: $toyplayer-controls-button-border-top-bottom-width;
   border-right: $toyplayer-controls-button-border-right-left-width solid $toyplayer-color-half-transparent;

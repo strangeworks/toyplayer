@@ -16,10 +16,7 @@
   position: absolute;
   left: 0;
   height: 100%;
-  box-shadow: inset $toyplayer-boxshadow-inset-distance-x
-                    $toyplayer-boxshadow-inset-distance-y
-                    $toyplayer-boxshadow-inset-blur-radius
-                    $toyplayer-boxshadow-inset-color;
+  box-shadow: inset $toyplayer-boxshadow-inset;
 }
 
 .toyplayer-progress-value {

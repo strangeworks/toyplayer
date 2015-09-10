@@ -7,11 +7,7 @@
   margin: $player-margin auto;
   width: $player-width;
   height: $player-height;
-  box-shadow: $player-boxshadow-outer-distance-x
-              $player-boxshadow-outer-distance-y
-              $player-boxshadow-outer-blur-radius
-              $player-boxshadow-outer-tension
-              $toyplayer-color-box-shadow;
+  box-shadow: $player-boxshadow-outer;
   border-top: $player-border-top-width solid $toyplayer-color-half-transparent;
   overflow: hidden;
 }
