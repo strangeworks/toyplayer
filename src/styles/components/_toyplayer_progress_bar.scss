@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+
+.toyplayer-progress {
+  background-color: $toyplayer-color-black;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.toyplayer-progress-value {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  box-shadow: $toyplayer-controls-progressbar-boxshadow;
+}
+
+.toyplayer-progress-value {
+  width: $toyplayer-progress-start-value-width;
+  background-color: $toyplayer-color-red;
+}
+

@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the player-controls.
+// -----------------------------------------------------------------------------
+
+
+.toyplayer-song-image {
+  position: relative;
+  height: $toyplayer-song-image-height;
+  width: 100%;
+  background: linear-gradient($toyplayer-song-image-linear-gradient);
+}
+
+.toyplayer-song-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $toyplayer-song-image-z-index;
+}

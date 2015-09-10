@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+
+.toyplayer-volume-bar-block {
+  position: absolute;
+  width: $toyplayer-controls-volume-bar-wrapper-width;
+  height: $toyplayer-controls-volume-bar-wrapper-height;
+  top: $toyplayer-controls-volume-bar-wrapper-margin-top;
+  right: $toyplayer-controls-volume-bar-wrapper-margin-right;
+  background-color: $toyplayer-color-half-transparent;
+  border-radius: $toyplayer-controls-volume-bar-wrapper-border-radius;
+}
+
+.toyplayer-volume-change-bar-roller {
+  position: absolute;
+  overflow: hidden;
+  width: $toyplayer-controls-volume-bar-width;
+  height: $toyplayer-controls-volume-bar-height;
+  bottom: $toyplayer-controls-volume-bar-margin-bottom;
+  left: $toyplayer-controls-volume-bar-margin-left;
+  border-radius: $toyplayer-controls-volume-bar-border-radius;
+  background-color: $toyplayer-color-silver;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.toyplayer-volume-change-bar-value {
+  position: absolute;
+  bottom: 0;
+  background-color: $toyplayer-color-red;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,34 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the featured of the site/application.
+// -----------------------------------------------------------------------------
+
+.toyplayer-controls button {
+  position: relative;
+  background: $toyplayer-color-transparent;
+  color: $toyplayer-color-silver;
+  font-family: $toyplayer-controls-button-font-family;
+  font-size: $toyplayer-controls-button-font-size;
+  text-shadow: $toyplayer-controls-textshadow;
+  border-top: $toyplayer-controls-button-border-top-bottom-width;
+  border-bottom: $toyplayer-controls-button-border-top-bottom-width;
+  border-right: $toyplayer-controls-button-border-right-left-width solid $toyplayer-color-half-transparent;
+  border-left: $toyplayer-controls-button-border-right-left-width solid $toyplayer-color-half-transparent;
+  transition: all 0.5s;
+  width: $toyplayer-controls-button-width;
+  height: $toyplayer-controls-button-height;
+
+  &:hover {
+    font-size: $toyplayer-controls-button-font-hover-size;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    font-size: $toyplayer-controls-button-font-size;
+  }
+
+  &:active {
+    font-size: $toyplayer-controls-button-font-size;
+    color: $toyplayer-color-red;
+  }
+}

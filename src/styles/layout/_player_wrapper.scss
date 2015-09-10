@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the grid.
+// -----------------------------------------------------------------------------
+
+#player {
+  position: relative;
+  margin: $player-margin auto;
+  width: $player-width;
+  height: $player-height;
+  box-shadow: $player-boxshadow-outer;
+  border-top: $player-border-top-width solid $toyplayer-color-half-transparent;
+  overflow: hidden;
+}

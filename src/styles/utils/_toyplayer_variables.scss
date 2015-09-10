@@ -1,0 +1,106 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/******************** Base styles/********************/
+
+/// html-styles
+$html-background-color: #c7bcbc;
+$html-font-size: 16px;
+
+/// Player
+$player-margin: 200px;
+$player-width: 640px;
+$player-height: 435px;
+
+/// Color
+$player-color-box-shadow: rgba(0,0,0,0.5);
+
+// Player-boxshadow
+$player-boxshadow-outer: -6px 6px 40px 5px $player-color-box-shadow;
+$player-border-top-width: 5px;
+
+/******************** Toyplayer styles/********************/
+
+/// Regular font family
+$toyplayer-text-font-stack: 'Helvetica Neune', Helvetica, Arial, sans-serif !default;
+
+/// Color
+$toyplayer-color-silver: #eaeaea !default;
+$toyplayer-color-grey: #636464 !default;
+$toyplayer-color-dark-grey: #2b2c2d !default;
+$toyplayer-color-black: black !default;
+$toyplayer-color-red: #db3d48 !default;
+$toyplayer-color-transparent: rgba(0,0,0,0);
+$toyplayer-color-half-transparent: rgba(255,255,255,0.06);
+$toyplayer-color-box-shadow: rgba(0,0,0,0.5);
+$toyplayer-color-shadow: rgba(0,0,0,0.5);
+$toyplayer-color-light-inset-shadow: rgba(0, 0, 0, 0.1);
+$toyplayer-color-inset-shadow: rgba(0, 0, 0, 0.2);
+
+/// Transition
+$toyplayer-transition-time: 0.1s;
+
+/// Links
+$toyplayer-controls-link-margin: 20px;
+$toyplayer-controls-link-font-size: 1rem;
+
+/// p
+$toyplayer-controls-p-margin-bottom: 5px;
+
+/// Textshadow
+$toyplayer-controls-textshadow: 0px 2px 3px $toyplayer-color-shadow;
+
+/// Boxshadow
+$toyplayer-controls-boxshadow: inset 0 -50px 7px 0 $toyplayer-color-light-inset-shadow, inset 0 -3px 2px 0 $toyplayer-color-inset-shadow;
+
+/// Boxshadow inset
+$toyplayer-controls-progressbar-boxshadow: inset 0px -4px 4px $toyplayer-color-inset-shadow;
+
+/// Song-image
+$toyplayer-song-image-z-index: -1;
+$toyplayer-song-image-height: 75%;
+$toyplayer-song-image-linear-gradient: to top, rgba(0,0,0,0.9)0%, rgba(0,0,0,0.7)10%, rgba(0,0,0,0.25)25%, rgba(0,0,0,0.1)35%, rgba(100,80,0,0.05)45%;
+
+/// Controls
+$toyplayer-controls-height: 100%-$toyplayer-song-image-height;
+
+/// Progress
+$toyplayer-progress-start-value-width: 0.1%;
+$toyplayer-controls-progress-height: 7.5%;
+
+/// Button font family
+$toyplayer-controls-button-font-family: FontAwesome;
+$toyplayer-controls-button-font-size: 1.5em;
+$toyplayer-controls-button-font-hover-size: 2.1em;
+
+/// Button
+$toyplayer-controls-button-border-top-bottom-width: 0;
+$toyplayer-controls-button-border-right-left-width: 2px;
+$toyplayer-controls-button-width: $player-height * (100% - $toyplayer-controls-progress-height)/100% * $toyplayer-controls-height/100%;
+$toyplayer-controls-button-height: $toyplayer-controls-button-width;
+
+/// Song-name
+$toyplayer-controls-song-name-width: ($player-width - ($toyplayer-controls-button-width*2));
+$toyplayer-controls-song-name-margin-top: 20px;
+$toyplayer-controls-song-name-font-size: 1.65rem;
+$toyplayer-controls-song-name-author-font-size: 1.5rem;
+$toyplayer-controls-song-name-height: 100%-$toyplayer-controls-progress-height;
+
+/// Volume-bar
+$toyplayer-controls-volume-bar-wrapper-height: 130px;
+$toyplayer-controls-volume-bar-wrapper-width: 30px;
+$toyplayer-controls-volume-bar-height: 100px;
+$toyplayer-controls-volume-bar-width: 5px;
+$toyplayer-controls-volume-bar-wrapper-margin-top: 0 - ($toyplayer-controls-button-height/2 + $toyplayer-controls-volume-bar-height);
+$toyplayer-controls-volume-bar-wrapper-margin-right: 10px;
+$toyplayer-controls-volume-bar-wrapper-border-radius: 7px;
+$toyplayer-controls-volume-bar-margin-bottom: ($toyplayer-controls-volume-bar-wrapper-height - $toyplayer-controls-volume-bar-height) / 2;
+$toyplayer-controls-volume-bar-margin-left: ($toyplayer-controls-volume-bar-wrapper-width - $toyplayer-controls-volume-bar-width) / 2;
+$toyplayer-controls-volume-bar-border-radius: 2px;
+
+/// Extra-controls
+$toyplayer-extra-controls-a-margin: 10px;
+$toyplayer-extra-controls-span-margin: 10px;
+$toyplayer-extra-controls-width: $player-width - $toyplayer-controls-button-width*2;
+$toyplayer-extra-controls-height: 40px;

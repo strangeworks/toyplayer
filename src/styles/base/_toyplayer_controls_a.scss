@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic links.
+// -----------------------------------------------------------------------------
+
+.toyplayer-controls a {
+  text-shadow: $toyplayer-controls-textshadow;
+  font-family: $toyplayer-text-font-stack;
+  margin: $toyplayer-controls-link-margin;
+  color: $toyplayer-color-silver;
+  font-size: $toyplayer-controls-link-font-size;
+  transition: all $toyplayer-transition-time;
+
+  &:hover {
+    color: $toyplayer-color-grey;
+    cursor: pointer;
+  }
+
+  &:active {
+    color: $toyplayer-color-red;
+  }
+}

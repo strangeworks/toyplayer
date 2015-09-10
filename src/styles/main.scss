@@ -1,0 +1,33 @@
+
+@charset 'UTF-8';
+
+// 1. Vendors
+//@import
+//  'vendor/scss/font-awesome';
+//  'vendor/font-awesome.scss',
+//  'vendor/font-awesome.min.css';
+
+// 2. Configuration and helpers
+@import
+  'utils/toyplayer_variables';
+
+// 3. Base stuff
+@import
+  'base/toyplayer_fonts',
+  'base/toyplayer_base',
+  'base/toyplayer_controls_a',
+  'base/toyplayer_controls_p',
+  'base/toyplayer_helpers';
+
+// 4. Layout-related sections
+@import
+  'layout/player_wrapper',
+  'layout/toyplayer_image',
+  'layout/toyplayer_controls';
+
+// 5. Components
+@import
+  'components/toyplayer_controls_buttons',
+  'components/toyplayer_song_name',
+  'components/toyplayer_progress_bar',
+  'components/toyplayer_volume_bar';

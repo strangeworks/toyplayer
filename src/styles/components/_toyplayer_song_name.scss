@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the grid.
+// -----------------------------------------------------------------------------
+
+
+.toyplayer-song-name {
+  margin-top: $toyplayer-controls-song-name-margin-top;
+}
+
+.toyplayer-song-name p {
+  color: $toyplayer-color-silver;
+  font-size: $toyplayer-controls-song-name-font-size;
+}
+
+.toyplayer-song-name p:last-child {
+  color: $toyplayer-color-grey;
+  font-size: $toyplayer-controls-song-name-author-font-size;
+}

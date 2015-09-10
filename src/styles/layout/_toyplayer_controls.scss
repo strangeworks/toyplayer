@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the player-image.
+// -----------------------------------------------------------------------------
+
+.toyplayer-controls {
+  background: $toyplayer-color-dark-grey;
+  box-shadow: $toyplayer-controls-boxshadow;
+  position: relative;
+  height: $toyplayer-controls-height;
+  width: 100%;
+}
+
+/// Top-buttons-position
+/// Inline buttons steading 'on' parent element
+.toyplayer-button-play, .toyplayer-button-volume {
+  position: absolute !important;
+  top: 0 - $toyplayer-controls-button-height;
+}
+
+/// make play button inline left
+.toyplayer-button-play {
+  left: 0;
+}
+
+/// make mute button inline right
+.toyplayer-button-volume {
+  right: 0;
+}
+
+.toyplayer-progress {
+  float: left;
+  width: 100%;
+  height: $toyplayer-controls-progress-height;
+}
+
+.toyplayer-button-previous, .toyplayer-song-name, .toyplayer-button-next {
+  float: left;
+}
+
+.toyplayer-song-name {
+  text-align: center;
+  height: $toyplayer-controls-song-name-height;
+  width: $toyplayer-controls-song-name-width;
+}
+
+.toyplayer-extra-controls {
+  position: absolute;
+  width: $toyplayer-extra-controls-width;
+  color: $toyplayer-color-grey;
+  right: $toyplayer-controls-button-width;
+  height: $toyplayer-extra-controls-height;
+  top: 0 - $toyplayer-extra-controls-height;
+}
+
+.toyplayer-extra-controls a {
+  margin: $toyplayer-extra-controls-a-margin;
+  float: right;
+}
+
+.toyplayer-extra-controls span {
+  margin: $toyplayer-extra-controls-span-margin;
+  float: left;
+}
