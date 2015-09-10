@@ -113,6 +113,8 @@ Toyplay.DEFAULTS = {
 
   songNumber: 0,
 
+  currentFile: '',
+
   PLAY: '&#xf04b;',
 
   PAUSE: '&#xf04c;',
@@ -150,9 +152,27 @@ Toyplay.prototype = {
   },
 
   togglePlay: function () {
-    var audioElm = $(this.options.audio)[0]
+    var itOpt = this.options,
+        audioElm = $(this.options.audio)[0]
 
     this[audioElm.paused ? 'playAudio' : 'pauseAudio']()
+  },
+
+  changeAudioInform: function() {
+     var itOpt = this.options,
+        audioURL = itOpt.songSrc[itOpt.songNumber],
+        $progress = $(itOpt.progressValue),
+        audioElm = $(itOpt.audio)[0]
+
+      itOpt.currentFile = audioURL
+      audioElm.src = audioURL
+
+
+      this.displayPicture()
+      this.displaySongName()
+
+      /// reset progress bar
+      $progress.css('width', '0.1%')
   },
 
   playAudio: function () {
@@ -163,11 +183,12 @@ Toyplay.prototype = {
         PAUSE = itOpt.PAUSE
 
     $btn.html(PAUSE)
-    audioElm.src = audioURL
-    audioElm.play()
 
-    this.displayPicture()
-    this.displaySongName()
+    if (itOpt.currentFile !== audioURL) {
+      this.changeAudioInform()
+    }
+
+    audioElm.play()
   },
 
   pauseAudio: function () {
@@ -178,6 +199,11 @@ Toyplay.prototype = {
         PLAY = itOpt.PLAY
 
     $btn.html(PLAY); // Set button text == Play
+
+    if (itOpt.currentFile !== audioURL) {
+      this.changeAudioInform()
+    }
+
     audioElm.pause()
   },
 
@@ -272,25 +298,35 @@ Toyplay.prototype = {
 
   changeSongToNext: function () {
     var itOpt = this.options,
+        audioElm = $(itOpt.audio)[0],
         songNumber = itOpt.songNumber,
         songSrc = itOpt.songSrc
 
     if (songSrc[songNumber + 1]) {
       itOpt.songNumber += 1
 
-      this.playAudio()
+      if(audioElm.paused) {
+        this.pauseAudio()
+      }else {
+        this.playAudio()
+      }
     }
   },
 
   changeSongToPrevious: function () {
     var itOpt = this.options,
+        audioElm = $(itOpt.audio)[0],
         songNumber = itOpt.songNumber,
         songSrc = itOpt.songSrc
 
     if (songSrc[songNumber - 1]) {
       itOpt.songNumber -= 1
 
-      this.playAudio()
+      if(audioElm.paused) {
+        this.pauseAudio()
+      }else {
+        this.playAudio()
+      }
     }
   },
 
