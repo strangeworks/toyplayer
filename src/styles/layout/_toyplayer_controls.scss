@@ -3,11 +3,11 @@
 // -----------------------------------------------------------------------------
 
 .toyplayer-controls {
-  background: $dark-grey;
+  background: $toyplayer-color-dark-grey;
   box-shadow: inset 0 -50px 7px 0 rgba(0, 0, 0, 0.1),
               inset 0 -3px 2px 0 rgba(0, 0, 0, 0.2);
   position: relative;
-  height: $player-controls-height;
+  height: $toyplayer-controls-height;
   width: 100%;
 }
 
@@ -15,7 +15,7 @@
 /// Inline buttons steading 'on' parent element
 .toyplayer-button-play, .toyplayer-button-volume {
   position: absolute !important;
-  top: 0 - $button-height;
+  top: 0 - $toyplayer-controls-button-height;
 }
 
 /// make play button inline left
@@ -31,7 +31,7 @@
 .toyplayer-progress {
   float: left;
   width: 100%;
-  height: $player-progress-height;
+  height: $toyplayer-controls-progress-height;
 }
 
 .toyplayer-button-previous, .toyplayer-song-name, .toyplayer-button-next {
@@ -40,25 +40,25 @@
 
 .toyplayer-song-name {
   text-align: center;
-  height: $song-name-height;
-  width: $song-name-width;
+  height: $toyplayer-controls-song-name-height;
+  width: $toyplayer-controls-song-name-width;
 }
 
 .toyplayer-extra-controls {
   position: absolute;
-  width: $extra-controls-width;
-  color: $grey;
-  right: $button-width;
-  height: $extra-controls-height;
-  top: 0 - $extra-controls-height;
+  width: $toyplayer-extra-controls-width;
+  color: $toyplayer-color-grey;
+  right: $toyplayer-controls-button-width;
+  height: $toyplayer-extra-controls-height;
+  top: 0 - $toyplayer-extra-controls-height;
 }
 
 .toyplayer-extra-controls a {
-  margin: 10px;
+  margin: $toyplayer-extra-controls-a-margin;
   float: right;
 }
 
 .toyplayer-extra-controls span {
-  margin: 10px;
+  margin: $toyplayer-extra-controls-span-margin;
   float: left;
 }

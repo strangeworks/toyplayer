@@ -1,9 +1,12 @@
 // -----------------------------------------------------------------------------
 // This file contains all paragraphs-styles// -----------------------------------------------------------------------------
+//
 
 .toyplayer-controls p {
-  text-shadow: 0px 2px 3px $shadow-color;
-  font-family: 'Arial', 'Helvetica', sans-serif;
-  margin-bottom: 5px;
+  text-shadow: $toyplayer-controls-textshadow-distance-x
+               $toyplayer-controls-textshadow-distance-y
+               $toyplayer-controls-textshadow-blur-radius
+               $toyplayer-color-shadow;
+  font-family: $toyplayer-text-font-stack;
+  margin-bottom: $toyplayer-controls-p-margin-bottom;
 }
-

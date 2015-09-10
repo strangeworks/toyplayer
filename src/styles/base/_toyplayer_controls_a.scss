@@ -2,22 +2,23 @@
 // This file contains very basic links.
 // -----------------------------------------------------------------------------
 
-
 .toyplayer-controls a {
-  text-shadow: 0px 2px 3px $shadow-color;
-  font-family: 'Arial', 'Helvetica', sans-serif;
-  margin: $link-margin;
-  color: silver;
-  font-size: $link-font-size;
+  text-shadow: $toyplayer-controls-textshadow-distance-x
+               $toyplayer-controls-textshadow-distance-y
+               $toyplayer-controls-textshadow-blur-radius
+               $toyplayer-color-shadow;
+  font-family: $toyplayer-text-font-stack;
+  margin: $toyplayer-controls-link-margin;
+  color: $toyplayer-color-silver;
+  font-size: $toyplayer-controls-link-font-size;
   transition: all 0.1s;
 
   &:hover {
-    color: $grey;
+    color: $toyplayer-color-grey;
     cursor: pointer;
   }
 
   &:active {
-    color: $red;
+    color: $toyplayer-color-red;
   }
 }
-

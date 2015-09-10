@@ -4,30 +4,34 @@
 
 .toyplayer-controls button {
   position: relative;
-  background: $transparent;
-  color: $silver;
-  font-family: $button-font-family;
-  font-size: $button-font-size;
-  text-shadow: 0 2px 2px rgba(0,0,0,0.5);
-  border: 0px;
-  border-right: 2px solid $half-transparent;
-  border-left: 2px solid $half-transparent;
+  background: $toyplayer-color-transparent;
+  color: $toyplayer-color-silver;
+  font-family: $toyplayer-controls-button-font-family;
+  font-size: $toyplayer-controls-button-font-size;
+  text-shadow: $toyplayer-controls-textshadow-distance-x
+               $toyplayer-controls-textshadow-distance-y
+               $toyplayer-controls-textshadow-blur-radius
+               $toyplayer-color-shadow;
+  border-top: $toyplayer-controls-button-border-top-bottom-width;
+  border-bottom: $toyplayer-controls-button-border-top-bottom-width;
+  border-right: $toyplayer-controls-button-border-right-left-width solid $toyplayer-color-half-transparent;
+  border-left: $toyplayer-controls-button-border-right-left-width solid $toyplayer-color-half-transparent;
   transition: all 0.5s;
-  width: $button-width - 1px;
-  height: $button-height;
+  width: $toyplayer-controls-button-width;
+  height: $toyplayer-controls-button-height;
 
   &:hover {
-    font-size: $button-font-hover-size;
+    font-size: $toyplayer-controls-button-font-hover-size;
     cursor: pointer;
   }
 
   &:focus {
     outline: none;
-    font-size: $button-font-size;
+    font-size: $toyplayer-controls-button-font-size;
   }
 
   &:active {
-    font-size: $button-font-size;
-    color: $red;
+    font-size: $toyplayer-controls-button-font-size;
+    color: $toyplayer-color-red;
   }
 }

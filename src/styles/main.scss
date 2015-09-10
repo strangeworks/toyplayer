@@ -1,42 +1,15 @@
-//require('fonts/icomoon.ttf');
-//require('imgs/play.svg');
-
-
-/*@font-face {
-  font-family: icomoon;
-  src: url('fonts/icomoon.ttf');
-}
-
-button {
-  font-family: icomoon;
-}
-
-
-/*button:before {
-  content: url('imgs/play.svg') /* with class ModalCarrot ??*/
-/*}
-
-button {
-   position: absolute;
-   left: 50%;
-   margin-left: -8px;
-   top: -16px;
-}
-*/
 
 @charset 'UTF-8';
 
 // 1. Vendors
-@import
-    'vendor/scss/font-awesome';
+//@import
+//  'vendor/scss/font-awesome';
 //  'vendor/font-awesome.scss',
 //  'vendor/font-awesome.min.css';
 
 // 2. Configuration and helpers
 @import
-  'utils/toyplayer_variables',
-  'utils/toyplayer_functions',
-  'utils/toyplayer_mixins';
+  'utils/toyplayer_variables';
 
 // 3. Base stuff
 @import

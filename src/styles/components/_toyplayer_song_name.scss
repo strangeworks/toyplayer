@@ -4,15 +4,15 @@
 
 
 .toyplayer-song-name {
-  margin-top: $song-name-argin-top;
+  margin-top: $toyplayer-controls-song-name-margin-top;
 }
 
 .toyplayer-song-name p {
-  color: $silver;
-  font-size: $song-name-font-size;
+  color: $toyplayer-color-silver;
+  font-size: $toyplayer-controls-song-name-font-size;
 }
 
 .toyplayer-song-name p:last-child {
-  color: $grey;
-  font-size: $song-name-author-font-size;
+  color: $toyplayer-color-grey;
+  font-size: $toyplayer-controls-song-name-author-font-size;
 }

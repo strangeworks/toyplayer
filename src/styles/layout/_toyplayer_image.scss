@@ -5,7 +5,7 @@
 
 .toyplayer-song-image {
   position: relative;
-  height: $player-image-height;
+  height: $toyplayer-song-image-height;
   width: 100%;
   background: linear-gradient(to top, rgba(0,0,0,0.9)0%,
                                       rgba(0,0,0,0.7)10%,
@@ -19,5 +19,5 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: -1;
+  z-index: $toyplayer-song-image-z-index;
 }

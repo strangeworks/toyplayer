@@ -10,7 +10,7 @@ var Toyplay = function (element, options) {
 
 Toyplay.DEFAULTS = {
   template: [
-  '<p><i class="icon-camera-retro icon-large"></i> icon-camera-retro</p>',
+  //'<p><i class="icon-camera-retro icon-large"></i> icon-camera-retro</p>',
     '<div class = "toyplayer-song-image">',
       '<img src = {imageSrc[songNumber]}></img>',
     '</div>',

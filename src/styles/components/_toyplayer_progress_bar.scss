@@ -4,7 +4,7 @@
 
 
 .toyplayer-progress {
-  background-color: $black;
+  background-color: $toyplayer-color-black;
   position: relative;
 
   &:hover {
@@ -16,11 +16,14 @@
   position: absolute;
   left: 0;
   height: 100%;
-  box-shadow: inset 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset $toyplayer-boxshadow-inset-distance-x
+                    $toyplayer-boxshadow-inset-distance-y
+                    $toyplayer-boxshadow-inset-blur-radius
+                    $toyplayer-boxshadow-inset-color;
 }
 
 .toyplayer-progress-value {
-  width: 0.1%;
-  background-color: $red;
+  width: $toyplayer-progress-start-value-width;
+  background-color: $toyplayer-color-red;
 }
 
