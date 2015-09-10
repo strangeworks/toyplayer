@@ -16,7 +16,7 @@
   position: absolute;
   left: 0;
   height: 100%;
-  box-shadow: inset $toyplayer-boxshadow-inset;
+  box-shadow: $toyplayer-controls-progressbar-boxshadow;
 }
 
 .toyplayer-progress-value {

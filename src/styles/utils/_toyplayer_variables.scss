@@ -35,7 +35,11 @@ $toyplayer-color-transparent: rgba(0,0,0,0);
 $toyplayer-color-half-transparent: rgba(255,255,255,0.06);
 $toyplayer-color-box-shadow: rgba(0,0,0,0.5);
 $toyplayer-color-shadow: rgba(0,0,0,0.5);
+$toyplayer-color-light-inset-shadow: rgba(0, 0, 0, 0.1);
 $toyplayer-color-inset-shadow: rgba(0, 0, 0, 0.2);
+
+/// Transition
+$toyplayer-transition-time: 0.1s;
 
 /// Links
 $toyplayer-controls-link-margin: 20px;
@@ -48,11 +52,15 @@ $toyplayer-controls-p-margin-bottom: 5px;
 $toyplayer-controls-textshadow: 0px 2px 3px $toyplayer-color-shadow;
 
 /// Boxshadow
-$toyplayer-boxshadow-inset: inset 0px -4px 4px $toyplayer-color-inset-shadow;
+$toyplayer-controls-boxshadow: inset 0 -50px 7px 0 $toyplayer-color-light-inset-shadow, inset 0 -3px 2px 0 $toyplayer-color-inset-shadow;
+
+/// Boxshadow inset
+$toyplayer-controls-progressbar-boxshadow: inset 0px -4px 4px $toyplayer-color-inset-shadow;
 
 /// Song-image
 $toyplayer-song-image-z-index: -1;
 $toyplayer-song-image-height: 75%;
+$toyplayer-song-image-linear-gradient: to top, rgba(0,0,0,0.9)0%, rgba(0,0,0,0.7)10%, rgba(0,0,0,0.25)25%, rgba(0,0,0,0.1)35%, rgba(100,80,0,0.05)45%;
 
 /// Controls
 $toyplayer-controls-height: 100%-$toyplayer-song-image-height;
