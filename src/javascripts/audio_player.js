@@ -303,13 +303,10 @@ Toyplay.prototype = {
         songSrc = itOpt.songSrc
 
     if (songSrc[songNumber + 1]) {
+
       itOpt.songNumber += 1
 
-      if(audioElm.paused) {
-        this.pauseAudio()
-      }else {
-        this.playAudio()
-      }
+      this[audioElm.paused ? 'pauseAudio' : 'playAudio']()
     }
   },
 
@@ -320,13 +317,10 @@ Toyplay.prototype = {
         songSrc = itOpt.songSrc
 
     if (songSrc[songNumber - 1]) {
+
       itOpt.songNumber -= 1
 
-      if(audioElm.paused) {
-        this.pauseAudio()
-      }else {
-        this.playAudio()
-      }
+      this[audioElm.paused ? 'pauseAudio' : 'playAudio']()
     }
   },
 
